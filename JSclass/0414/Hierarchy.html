@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../frameWork/jquery_3.6.4.js"></script>
+    <style type="text/css">
+        li{line-height: 40px;font-size: 24px;}
+        .brd{border: 1px solid tomato;}
+
+    </style>
+    <script>
+        $(function(){
+            //모든 li 에 테두리 적용
+            // $("li").addClass("brd");
+            
+            // 하위 계층에만 테두리 적용
+            // $("ul[class]>li").addClass("brd");
+
+            // 손자 계층에만 테두리 적용
+            $("ul li ul li").addClass("brd");
+        })
+    </script>
+</head>
+<body>
+    <h2>요소 계층간 구조</h2>
+        <ul class="DOMtree">
+            <li>ul의 하위 계층</li>
+            <li>ul의 하위 계층</li>
+            <li>ul의 하위 계층
+                <ul>
+                    <li>여기는 손자계층</li>
+                    <li>여기는 손자계층</li>
+                </ul>
+            </li>
+            <li>ul의 하위 계층</li>
+            <li>ul의 하위 계층</li>
+            <li>ul의 하위 계층</li>
+        </ul>
+</body>
+</html>

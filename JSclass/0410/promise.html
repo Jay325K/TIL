@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        function displayFunc(some){
+            demo.innerHTML = some;
+        }
+        function sFunc(some){
+            demo.innerHTML ="Success!!";
+        }
+
+        function fFunc(some){
+            demo.innerHTML = "Fail!!";
+        }
+
+
+        // promise 객체 만들거얌
+        let prom = new Promise(function(resolve_value, reject_value){
+            
+            let x = 0;
+
+            if(x == 0){
+                resolve_vlaue("Success!!")
+            }else{
+                reject_value("Fail!!");
+            }
+
+        });
+
+        prom.then(
+        // 성공했을 때 실행할 함수
+        function(aa){sFunc(aa)},
+        // 실패했을 때 실행할 함수
+        function(aa){fFunc(aa)}
+
+        );
+
+
+        setTimeout(function(){myFunction("Good Day!!!");},3000);
+
+        function myFunction(value){
+            document.getElementById("demo").innerHTML = value;
+        }
+    </script>
+</body>
+</html>

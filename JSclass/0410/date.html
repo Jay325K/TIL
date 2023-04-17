@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="display_date()">
+    <p id="display"></p>
+    <button type="button" onclick="display_date()">play</button>
+    <button type="button" onclick="time_stop()">stop</button>
+
+    <script>
+        // var date = new Date();
+
+        // date = date.getYear(); 이게 왜 123이지 1900+ 123??
+        // date = date.getFullYear(); 현재 연도
+        // date = date.getMonth()+1; 왜 겟 먼스를했는데 +1 해야 정상적인 달을 얻는거이야요? 인덱스 기준인가봄 0부터
+        // let months= [];
+        // date = months[date.getMonth()];
+
+        // date = date.getDate(); 얘는 수정 필요 없!
+
+        // 컴퓨터에서의 시간은 일요일부터이다.
+        // let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+        // date = days[date.getDay()];
+
+        // 시간들은 다들 s 붙음
+        // date = date.getHours();
+        // if(date < 12){
+        //     date = "AM " + date;
+        // }else if(date == 12){
+        //     date = "PM " + date;
+        // }else if(date > 12){
+        //     date = "PM " + (date -12);
+        // }else if(date == 0){
+        //     date = "AM 12" 
+        // };
+            // var hours = 
+
+
+
+        // date = date.getSeconds();
+        // date = (date < 10)? "0"+date : date;
+
+        // date = date.getMinutes();
+        // date = (date < 10)? "0"+date: date;
+
+        // display.innerHTML = date;
+
+        let st;
+    
+        function display_date(){
+            let date = new Date();
+
+            let g_hour = date.getHours();
+            let amPm = g_hour < 12 ? "AM" : "PM";
+            g_hour = g_hour % 12 || 12;
+
+            let g_min = date.getMinutes();
+            g_min = (g_min<10)? "0"+g_min:g_min;
+
+            let g_sec = date.getSeconds();
+            g_sec = (g_sec<10)? "0"+g_sec:g_sec;
+
+            display.innerHTML = g_hour + ":" + g_min + ":" + g_sec;
+
+           st = setTimeout(display_date,1000); //그 시간이 지난 이후에
+        }
+
+        // setInterval(display_date,1000); //그 시간 마다
+
+        function time_stop(){
+            clearTimeout(st);
+        }
+
+        
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .fade1 {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+        .fade1 img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .fade1 span {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #000;
+            opacity: 0.6;
+        }
+
+        .fade2 {
+            width: 200px;
+            height: 200px;
+            background: #000;
+        }
+
+        .fade2 img {
+            width: 200px;
+            height: 200px;
+            opacity: 0.4;
+        }
+
+        .fade3 {
+            width: 200px;
+            height: 200px;
+            background: #000;
+        }
+
+        .fade3 img {
+            width: 200px;
+            height: 200px;
+            opacity: 0.4;
+            transition: opacity 0.3s;
+        }
+    </style>
+    <script src="../frameWork/jquery_3.6.4.js"></script>
+    <script>
+        $(function () {
+            $(".fade1 span").hover(function () {
+                $(this).animate({ opacity: 0 }, 200);
+            }, function () {
+                $(this).animate({ opacity: 0.6 }, 200);
+            })
+
+            $(".fade2 img").hover(function () {
+                $(this).animate({ opacity: 1 }, 200);
+            }, function () {
+                $(this).animate({ opacity: 0.4 }, 200);
+            })
+
+            $(".fade3 img").hover(function () {
+                $(this).animate({ opacity: 1 }, 200);
+            }, function () {
+                $(this).animate({ opacity: 0.4 }, 200);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <h2>fade 1</h2>
+    <div class="fade1">
+        <img src="../img/rose.jpg" alt="">
+        <span></span>
+    </div>
+
+    <h2>fade 2</h2>
+    <div class="fade2">
+        <img src="../img/rose.jpg" alt="">
+    </div>
+
+    <h2>fade 3</h2>
+    <div class="fade3">
+        <img src="../img/rose.jpg" alt="">
+
+    </div>
+</body>
+
+</html>

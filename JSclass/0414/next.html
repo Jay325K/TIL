@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../frameWork/jquery_3.6.4.js"></script>
+    <style type="text/css">
+        div,
+        span {
+            display: block;
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            background: skyblue;
+            float: left;
+            font-size: 16px;
+        }
+
+        div#small {
+            width: 100px;
+            height: 60px;
+            font-size: 14px;
+            background-color: pink;
+        }
+
+        .brd {
+            border: 5px solid red
+        }
+    </style>
+    <script>
+        $(function () {
+            // span 요소 바로 다음에 오는 div에만 스타일 적용
+            $("span + div").addClass("brd");
+
+            // #prev의 형제요소 중 #prev 다음에 오는 div만 스타일 적용
+            $("span ~ div").addClass("brd");
+            // 후손 small 스타일 적용
+            // $("small").addClass("div#small")
+        })
+    </script>
+</head>
+
+<body>
+    <div>DIV</div>
+    <span id="prev">SPAN#PREV</span>
+    <div>#PREV의 형제 DIV</div>
+    <div>#PREV의 형제 DIV
+        <div id="small">후손 DIV#SMALL</div>
+    </div>
+    <span>#PREV의 형제 SPAN</span>
+    <div>#PREV의 형제 DIV</div>
+</body>
+
+</html>

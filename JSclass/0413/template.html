@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 템플릿</title>
+    <!-- 1. 라이브러리 불러오기 -->
+    <!-- 1.1 local import -->
+    <!-- <script src="../frameWork/jquery_3.6.4.js"></script> -->
+
+    <!-- 1.2 CDN : Contents(여기서는 제이쿼리) Delivery Network : 외부 참조-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+
+
+
+    <!-- 2. 문서가 준비되었는지 확인하기 -->
+    <script>
+        js : window.onload = function(){}
+        // jq : $("").~~~() //따옴표 안쓰는 객체 들 몇개 있다 : ex)문서 나타내주는 객체 document
+        // jq 에서는 document까지 가져오는것을 선호 / js에서는 window??
+        // jq : $(document).ready(function(){})
+
+        $(document).ready(function(){
+        // $(function){ -> 위와 같은 뜻 : (document).ready생략 가능!
+        })
+
+
+        // // in js
+        // obj.style.prop = "value";
+        // <elem style = "prop : value"
+
+        // // in css
+        // .class_name {}
+        // obj. className = "class_name";
+        // <elem class = "class_name"
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

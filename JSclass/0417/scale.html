@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../frameWork/jquery_3.6.4.js"></script>
+    <style type="text/css">
+        .img1{width: 200px;height: 200px;overflow: hidden;margin-bottom: 20px;}
+        .img1 img{width: 200px;height:200px; position: relative;}
+
+        .img2 {width: 200px;height:200px; overflow: hidden;}
+        .img2 img{width: 200px;height:200px;}
+        .img2 img:hover{transform: scale(1.1,1.1);}
+    </style>
+    <script>
+        $(function(){
+            $(".img1 img").hover(function(){
+                $(this).animate({width:200,height:200,left:-10,top:-10},200);
+            }, function(){
+                $(this).animate({width:200,height:200,left:0,top:-20},200);
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="img1">
+        <a href="#">
+            <img src="../img/bird.jpg" alt="">
+        </a>
+    </div>
+
+    <div class="img2">
+        <a href="#">
+            <img src="../img/blueberry.jpg" alt="">
+        </a>
+    </div>
+</body>
+</html>

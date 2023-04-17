@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            display: inline-block;
+            margin-right: 10px;
+        }
+        #a_co{
+            color: brown;
+        }
+        #b_co{
+            color: #382aa5;
+        }
+        #c_co{
+            color: #a5932a;
+        }
+        #d_co{
+            color: #2aa53a;
+        }
+        #f_co{
+            color: rgb(54, 25, 25);
+        }
+    </style>
+    <script type="text/javascript">
+        
+        var i = prompt("너의 점수를 입력하라","점수 여기로 내놔 =ㅅ=");
+
+        if(90<=i && i<=100){
+            document.write("너가 입력한 점수는"+ i + "라서 <br>따라!<br> 네 등급~은~? <br>" + "<h2 id=a_co>A</h2>"+"야! ^^");
+        }else if(80<=i && i<=89){
+            document.write("너가 입력한 점수는"+ i + "라서 <br>따라!<br> 네 등급~은~? <br>" + "<h2 id=b_co>B</h2>"+ "야! ^^");
+        }else if(70<=i && i<80){
+            document.write("너가 입력한 점수는"+ i + "라서 <br>따라!<br> 네 등급~은~? <br>" + "<h2 id=c_co>C</h2>"+ "야! ^^");
+        }else if(60<=i && i<70){
+            document.write("너가 입력한 점수는"+ i + "라서 <br>따라!<br> 네 등급~은~? <br>" + "<h2 id=d_co>D</h2>"+ "야! ^^");
+        }else if(0<=i && i<60){
+            document.write("너가 입력한 점수는"+ i + "라서 <br>따라!<br> 네 등급~은~? <br>" + "<h2 id=f_co>F</h2>"+ "야! ㅜㅜ");
+        }else{
+            document.write("잘못된 점수입니다.");
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

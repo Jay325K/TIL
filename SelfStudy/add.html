@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Empty vs Remove</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<h2>jQuery Empty vs Remove</h2>
+	<div id="parent">
+		<p>This is some text in a paragraph.</p>
+		<p>This is some more text in another paragraph.</p>
+	</div>
+	<button id="empty">Empty</button>
+	<button id="remove">Remove</button>
+
+	<script>
+		$(document).ready(function() {
+			// Empty button click event
+			$('#empty').click(function() {
+				$('#parent').empty();
+			});
+
+			// Remove button click event
+			$('#remove').click(function() {
+				$('p').css("border","5px dotted red")
+			});
+
+            // addClass duplicate
+            // $("p").togg("important blah");
+		});
+	</script>
+</body>
+</html>

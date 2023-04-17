@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <p id="demo"></p>
+    <script>
+        /*객체생성 : function 방식*/
+        function Car(name,year){
+            this.name = name;
+            this.year = year;
+        }
+        const myCar1 = new Car("Ford", 2014);
+        const myCar2 = new Car("Audi", 2019);
+
+        demo.innerHTML = "Car name :" + myCar1.name + "/ Year is :" + myCar1.year;
+
+
+        
+        /*class방식*/
+        class Car {
+            constructor(name, year) {
+                this.name = name; //이름을 꼭 같게 만들 필요는 없지만, 다르게 할  필요가 더  없다!
+                this.year = year;
+                Car.fullName = "hi my name is : " + Car.name + "/ And my age is : "+ Car.year;
+            }
+        }
+
+        const myCar1 = new Car("Ford", 2014);
+
+        const myCar2 = new Car("Audi", 2019);
+
+        document.getElementById("demo").innerHTML = Car.fullName;
+        // document.getElementById("demo").innerHTML = myCar1.name + " " + myCar2.name;
+
+        </script>
+    
+</body>
+
+</html>

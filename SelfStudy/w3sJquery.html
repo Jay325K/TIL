@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Stop Animation Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    /* button {
+      position: relative;
+      left: 0;
+      transition: left 2s;
+    }
+    button:hover {
+      left: 300px;
+    } */
+    div{
+      display: block;
+      width: 200px;
+      height: 200px;
+      background-color: bisque;
+    }
+  </style>
+  <script>
+    $(function(){
+      $("div").animate({left:"250px"});
+    })
+  </script>
+</head>
+<body>
+  <!-- <button>버튼</button>
+  <script>
+    $(function() {
+      var button = $("button");
+      button.hover(function() {
+        button.stop();
+      }, function() {
+        button.animate({left: 0}, 2000);
+      });
+    });
+  </script> -->
+  <div>
+    animation
+  </div>
+</body>
+</html>

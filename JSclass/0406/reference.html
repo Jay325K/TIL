@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+
+    <p id="demo"></p>
+    <script>
+        let x = 5;
+
+        try {
+            x = y + 1; //y cannot be used (referenced)
+        }
+        catch (err) {
+            document.getElementById("demo").innerHTML = `
+                let x = 5; <br>
+                x = y + 1 // y는 정의되지 않은 변수 <br><br>
+
+                Error Name : ${err.name}
+            `
+        }
+
+        try{
+            Block of code to try
+        }catch(err){
+            Block of code to handle errors
+        }finally{
+            Block of code to be executed regardless of the try / catch result
+        }
+    </script>
+
+</body>
+
+</html>

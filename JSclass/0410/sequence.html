@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        function myDisplayer(some){
+            document.getElementById("demo").innerHTML = some;
+        }
+        // 아래 코드는 무조건 여러 개의 함수 필요
+        function myCalculator(num1, num2){
+            let sum = num1 + num2;
+            myDisplayer(sum);
+        }
+
+        myCalculator(5,5);
+        // myDisplayer(result);
+
+
+        setTimeout(myFunction,3000);
+
+        function myFunction(){
+            document.getElementById("demo").innerHTML = "Have a Good Day!";
+        }
+
+        let myPromise = new Promise(function(myResolve, myReject){
+            myResolve();//함수 실행 성공시 수행할 코드
+            myReject();//함수 실행 실패시 수행할 코드
+        });
+
+        //"Consuming Code" (Must wait for a fulfilled Promise)
+        myPromise.then(
+            function(value){/*code if successful*/},
+            function(error){/*code if error*/}
+        );
+
+        function myDisplayer(some){
+            document.getElementById("demo").innerHTML = some;
+        }
+
+        let myPromise = new Promise(function(myResolve, myReject){
+            let x = 0; 
+        }
+
+        // Then producing code (this may take some time)
+
+        if (x==0){
+            myResolve("Ok");
+        }else{
+            myReject("Error");
+        }
+        });
+
+        myPromise
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        input,
+        select,
+        option {
+            font-size: 18px;
+        }
+
+        body {
+            line-height: 1.5;
+        }
+
+        input[type=checkbox] {
+            width: 20px;
+            height: 20px;
+        }
+
+        button {
+            font-size: 16px;
+        }
+
+        .txt {
+            display: inline-block;
+            width: 140px
+        }
+
+        ;
+
+        .txt_box {
+            width: 160px;
+        }
+
+        .disp_txt {
+            margin-left: 150px;
+            font-size: 14px;
+            color: #333
+        }
+
+        .option_box {
+            font-size: 18px;
+            color: #333
+        }
+
+        legend {
+            display: none;
+        }
+
+        fieldset {
+            border: o none;
+        }
+
+        form p {
+            border-bottom: 1px solid #999;
+            padding-bottom: 20px;
+        }
+    </style>
+    <script type="text/javascript">
+        function form_check() {
+            let name = document.getElementById("name").value;
+            let id = document.getElementById("id").value;
+            let pwd = document.getElementById("pwd").value;
+            let pwdChk = document.getElementById("pwdChk").value;
+            let apply = document.getElementById("apply"); //여기는 value 붙으면 안돼에에~
+            let pCall = document.getElementById("pCall").value; //pCall변수에 아무런 값 할당안하고
+
+            // if (name == "") { //값이 없다면 if(!u_name)<-이렇게 써도 됨
+            //     alert("이름을 입력하세요.");
+            //     return false;
+            // }
+            // if (id == ""){
+            //     alert("아이디를 입력하세요.");
+            //     return false;
+            // }
+            // let idLen = id.length;
+            // if(idLen<4 || idLen>12){
+            //     alert("* 아이디는 4~12글자만 입력할 수 있습니다.");
+            //     return false;
+            // }
+            // if (pwd == ""){
+            //     alert("패스워드를 입력하세요.");
+            //     return false;
+            // }
+            // let pwdLen = pwd.length;
+            // if(pwdLen<4 || pwdLen>8){
+            //     alert(" * 패스워드는 4~8글자만 입력할 수 있습니다.");
+            //     return false;
+            // }
+            // if(pwd !== pwdChk){
+            //     alert("입력하신 패스워드의 값이 동일하지 않습니다.");
+            //     return false;
+            // }
+
+            // ---------------------------
+            // let 변수 = /패턴(규칙)/플래그(옵션)
+            //     변수.메소드()
+            // --------------------------
+
+            let reg = /^[a-zA-Zㄱ-힣0-9]+$/g;
+            if (pCall == "") {
+                alert("전화번호를 입력해 주세요");
+                return false;
+            } else if (!reg.test(pCall)) {
+                alert("전화번호는 숫자만 입력할 수 있습니다.");
+                return false;
+            }
+
+            if (!apply.checked) {
+                alert("약관을 동의해주세요.");
+                return false;
+            }
+
+        }
+        function selChk() {
+            let email = document.getElementById("email");
+            let emailDns = document.getElementById("emailDns");
+
+            let idx = emailSel.options.selectedIndex;
+            // emailDns.value = emailSel.options[1].value; 
+            emailDns.value = emailSel.options[idx].value;
+        }
+        function openWin(url, w_width, w_height) {
+            window.open(url, "", 'width=${w_width}, height=${w_height}')
+
+        }
+
+            // ,height:400,left:500,top:0}
+            // function openAddr(){
+            //     window.open("inputAddr.html","주소검색","width=600, height=400, left=500, top=0")
+            // }
+
+
+
+    </script>
+</head>
+
+<body>
+    <h2>회원가입</h2>
+    <form name="join_form" action="insert.php" method="get" onsubmit="return form_check()">
+        <fieldset>
+            <p>
+                <label for="nameL">이름</label> <br>
+                <input type="text" name="name" id="name">
+            </p>
+            <p>
+                <label for="idL">아이디</label> <br>
+                <input type="text" name="id" id="id">
+                <button type="button" id="idBtn" onclick="openWin('inputId.html', 600, 400)">아이디
+                    중복확인</button><!--ajax 활용해서 사용자가 값 하나하나 입력할때마다 바로 비동기식으로 아이디 유효성 확인-->
+                <!-- 1. 팝업 뜨고 사용가능한 아이디인지 확인!(이거 채택) 2. 결과값을 바로 받아서 밑에 바로 사용 가능한지 안한지 -->
+                <br> * 아이디는 4~12글자만 입력할 수 있습니다.
+            </p>
+            <p>
+                <label for="pwdL">비밀번호</label> <br>
+                <input type="text" name="pwd" id="pwd"> <br>
+                <!-- <input type="password" name="pwd" id="pwd"> 이게 찐 -->
+                비밀번호 확인<input type="text" name="pwdChk" id="pwdChk">
+                <br> * 패스워드는 4~8글자만 입력할 수 있습니다.
+            </p>
+            <p>
+                <label for="pCallL">전화번호</label> <br>
+                <input type="text" name="pCall" id="pCall">
+                <!-- <input type="tel" name="pCall" id="pCall"> 이게 찐 -->
+            </p>
+            <p>
+                <label for="emailL">이메일</label> <br>
+                <input type="text" name="email" id="email">@ <!--required 쓸수도 있지만 스크립트로 제어하는거 추천 (와이?|쟨 입력해야한다고 말만 함)-->
+                <input type="text" name="emailDns" id="emailDns">
+                <!-- <input type="email" name="emial" id="email">@ 이게 찐 -->
+                <select name="emailSel" id="emailSel" onchange="selChk()">
+                    <option value="">직접입력</option>
+                    <option value="naver.com" id="naver">naver.com</option>
+                    <option value="daum.net" id="daum">daum.net</option>
+                    <option value="gmail.com" id="gmail">gmail.com</option>
+                </select>
+            </p>
+            <p>
+                <label for="birthL">생년월일</label> <br>
+                <input type="text" name="birth" id="birth">
+                <!-- <input type="date" name="birth" id="birth"> 이게 찐 -->
+                <br>ex|20040315
+            </p>
+            <p>
+                <label id="postalCodeL">주소</label> <br>
+                <input type="text" name="postalCode" id="postalCode">
+                <button type="button" onclick="openWin('inputAddr.html', 600, 400)">검색</button>
+                <br>
+                <label for="addrL">기본주소</label> <br>
+                <input type="text" name="addr" id="addr">
+                <br>
+                <label for="d_addrL">상세주소</label> <br>
+                <input type="text" name="d_addr" id="d_addr">
+            </p>
+            <p class="checkBox">
+                <input type="checkbox" name="apply" id="apply" value="y">
+                <!--위에 체크 박스를value 라고 쓰면 안되는이유 : value라는 속성이 있으면 체크 여부 상관없이 true 전송됨 -->
+                <label for="applyL">약관동의</label> <br>
+                <textarea name="" id="" cols="30"
+                    rows="10">여러분을 환영합니다.
+                    네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.</textarea>
+            </p>
+            <p>
+                <button type="submit">회원가입</button>
+                <button type="button">이전으로</button>
+            </p>
+        </fieldset>
+    </form>
+    <script>
+        addr.onclick = function (e) {
+            console.log(e)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElement</title>
+    <script type="text/javascript">
+
+        function printText(){
+            // document.getElementById("uid").innerHTML("안녕");
+
+            // 기존 폼 요소 선택 : 배열 or 폼 요소의 name 속성값
+            // document. -> <body>에 가면
+            // .form1.txt -> form1 이라는 이름안에 txt
+            // document.form1.txt.value = "글자 출력하기";
+
+
+            //dom 방식  - 위보다 복잡해보이지만 아주 직관적인 녀석
+            // 바디에. "uid"라는 id 를 가진 태그(element)좀 가져와!   + .value 값을 부여한다~ (string으로)
+            document.getElementById("uid").value = "안녕안녕";
+        }
+
+
+        
+    </script>
+</head>
+<body>
+    <form name="form1" action="" method="">
+        <p>*버튼을 클릭하면 텍스트 필드에 글자가 나타납니다</p>
+        <p>
+            <input type="text" name="txt" id="uid" value="아이디" >
+            <button type="button" onclick="printText()">글자 출력</button>
+        </p>
+    </form>
+</body>
+</html>

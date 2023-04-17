@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        input {
+            font-size: 20px
+        }
+
+        input,
+        button {
+            vertical-align: middle;
+        }
+
+        button {
+            font-size: 0.8em;
+        }
+    </style>
+    <script>
+        // function returnAddr(){
+        //     opener.document.getElementById("addr").value = "역삼동";
+        //     window.close();
+        // }
+    </script>
+</head>
+
+<body>
+    <form action="addrSearchResult.html" method="get">
+        <fieldset>
+            <legend>주소검색</legend>
+            <label for="inputAddr">입력</label>
+            <input type="text" name="inputAddr" id="inputAddr" value="역삼동">
+            <button type="submit">검색</button>
+        </fieldset>
+    </form>
+</body>
+
+</html>

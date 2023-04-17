@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style type="text/css">
+        body,input,button{font-size: 24px;}
+    </style>
+</head>
+<body>
+    <p id="changeText">버튼을 클릭하면 이 문장의글자색이 변합니다.</p>
+    <p><input type="text" id="sc" name="sc"> 색상 입력 </p>
+    <p><button type="button" id="btn">글자 색상 바꾸기</button> </p>
+
+    <script type="text/javascript">
+        // var btn = document.getElementById("btn");
+
+        function redColor(){
+            var txt = document.getElementById("changeText");
+            txt.style.color = "red";
+        }
+
+        btn.addEventListener("click",redColor);
+        // btn.addEventListener("이벤트",함수);
+        // btn.addEventListener("이벤트",() => {});
+    </script>
+</body>
+</html>

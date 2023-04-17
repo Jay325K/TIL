@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../frameWork/jquery_3.6.4.js"></script>
+    <style type="text/css">
+        table{border: 1px solid #aaa;margin: 20px;text-align: center;font-weight: bold;font-size: 20px;}
+        td{border: 1px solid #aaa;width: 80px;height: 80px;}
+        .greenBG{background: greenyellow;}
+        .pinkBG{background-color: pink;}
+
+    </style>
+    <script>
+        $(function(){
+            // 첫번째 행에 초록색 배경 적용
+            // $("tr:first").addClass("greenBG");
+            // $("tr:eq(0)").addClass("greenBG");
+            // $("tr:lt(1)").addClass("greenBG");
+
+            // 첫번째 tr의 첫번째 td에 초록색 배경 적용
+            // $("tr:first td:first").addClass("greenBG");
+            // $("tr:first td:eq(0)").addClass("greenBG");
+            // $("tr:first td:lt(1)").addClass("greenBG");
+
+            // 짝수번째에 tr에 pinkBG 적용 (인간 짝수 even / 컴터 짝수 odd)
+            // $("tr:odd").addClass("pinkBG");
+            // $("tr:not(:even)").addClass("pinkBG"); -- 얘가 더 좋다는데,, 왜?
+
+            // 첫 번째 행 마지막 td 에 pinkBG 적용
+            // $("tr:first td:last").addClass("pinkBG");
+            // $("tr:eq(0) td:last").addClass("pinkBG"); -- first는 항상 eq(0)이라 상관 없는데, last는 항상 eq(9)아님
+            // $("tr:eq(0) td:eq(9)").addClass("pinkBG");
+
+
+            // 두 번째 행의 세번째 셀 뒤로는 배경색을 핑크로 변경
+            $("tr:gt(0) td:gt(2)").addClass("pinkBG");
+        })
+    </script>
+</head>
+<body>
+    <h2>* 필터를 이용한 요소 선택</h2>
+    <table>
+        <tr>
+            <td>#1</td><td>#2</td><td>#3</td>
+            <td>#4</td><td>#5</td><td>#6</td>
+            <td>#7</td><td>#8</td><td>#9</td>
+            <td>#10</td>
+        </tr>
+        <tr>
+            <td>#11</td><td>#12</td><td>#13</td>
+            <td>#14</td><td>#15</td><td>#16</td>
+            <td>#17</td><td>#18</td><td>#19</td>
+            <td>#20</td>
+        </tr>
+        <tr>
+            <td>#21</td><td>#22</td><td>#23</td>
+            <td>#24</td><td>#25</td><td>#26</td>
+            <td>#27</td><td>#28</td><td>#29</td>
+            <td>#30</td>
+        </tr>
+        <tr>
+            <td>#31</td><td>#32</td><td>#33</td>
+            <td>#34</td><td>#35</td><td>#36</td>
+            <td>#37</td><td>#38</td><td>#39</td>
+            <td>#40</td>
+        </tr>
+    </table>
+</body>
+</html>

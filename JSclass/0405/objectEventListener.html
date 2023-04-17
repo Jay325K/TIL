@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objectEventListener</title>
+    <style>
+        .redText{color:red;}
+        .blueText{color: blue;}
+        .greenText{color: green;}
+    </style>
+
+</head>
+
+<body>
+    <p id="changeText">클릭한 버튼에 따라 다른 스타일이 적용됩니다.</p>
+    <p><button type="button" id="rBtn">빨강</button> </p>
+    <p><button type="button" id="gBtn">초록</button> </p>
+    <p><button type="button" id="bBtn">파랑</button> </p>
+    <script>
+        window.onload = function(){ //무엇을 불러올지 명확하다면 name 안써도 된다. //function에 이름붙은건 hoisting 되서 바로 위에 대기타고 있다
+        //가급적 스크립트에서 변수를 위에 두는 게 좋다
+        // 브라우저들이 항상 rBtn id 넣어두면 밑에처럼 미리 만들어두고 생각하더라~~~~~~ 
+        let rBtn = document.getElementById("rBtn");
+        let gBtn = document.getElementById("gBtn");
+        let bBtn = document.getElementById("bBtn");
+    
+        // 빨강 버튼을 클릭하면 문장의 글자색을 빨간색으로 바꾸기
+        rBtn.onclick = function (){  
+        document.getElementById("changeText").className = "redText";
+        }
+        gBtn.onclick = function (){
+            var txt = document.getElementById("changeText");
+                txt.className = "greenText";
+        }
+        bBtn.onclick = function(){
+            var txt = document.getElementById("changeText");
+                txt.className = "blueText";
+        }
+    // 근데 head 에서는 안되고, body안에서만 되네~~~ 왜 이러지???
+    // let rBtn = document.getElementById("rBtn"); -> 아직 만들어지지도 않은 body(document)를 가져오라고 하니 못가져와~~~~~~~
+    // 그러니 바디에 빨강 버튼 아래에 두면 빨강 버튼만 실행되고, 나머진 초록 파랑 안됨
+        }
+    </script>
+</body>
+
+
+</html>

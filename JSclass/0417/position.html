@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../frameWork/jquery_3.6.4.js"></script>
+    <style type="text/css">
+        .m1{width: 200px;height: 200px;background: url(../img/tulip.png);
+        background-size: 100%;margin-bottom:  20px;position: relative; overflow: hidden;}
+        .m1 span{width: 200px;height: 200px;position: absolute;left: 0;top: 160px;background: rgba(0, 0, 0, 0.6);}
+
+        .m2{width: 200px;height: 200px;background: url(../img/bird.jpg);
+        background-size: 100%;margin-bottom:  20px;position: relative; overflow: hidden;}
+        .m2 span{width: 200px;height: 40px;position: absolute;left: 0;top: 160px;background: rgba(0, 0, 0, 0.6);}
+
+        .m3{width: 200px;height: 200px;background: url(../img/rose.jpg);
+        background-size: 100%;margin-bottom:  20px;position: relative; overflow: hidden;}
+        .m3 span{width: 200px;height: 200px;position: absolute;left: 0;top: 160px;background: rgba(0, 0, 0, 0.6);transition: top 0.3s;}
+        .m3:hover span{top:0}
+    </style>
+    <script>
+        $(function(){ 
+            $(".m1").mouseenter(function(){
+                $(".m1 span").animate({top:"0"},200);
+            })
+            $(".m1").mouseleave(function(){
+                $(".m1 span").animate({top:"160"},200);
+            })
+
+
+            $(".m2").mouseenter(function(){ 
+                $(this).find("span").animate({top:"0",height:200},200);
+            })
+            $(".m2").mouseleave(function(){
+                $(this).find("span").animate({top:"160"},200);
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="m1">
+        <span></span>
+    </div>
+    <div class="m2">
+        <span></span>
+    </div>
+     <div class="m3">  <!--js는 종속관계 아니여도 효과 사용 가능하지만, css에서는 중첩관계에 한해서 -->
+        <span></span>
+    </div>
+</body>
+</html>

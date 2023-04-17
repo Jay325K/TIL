@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            color: blue;
+        }
+        a:hover{
+            color: tomato;
+        }
+    </style>
+    <script>
+        function returnAddr(pc, addr) {
+            opener.document.getElementById("postalCode").value = pc;
+            opener.document.getElementById("addr").value = addr;
+            window.close();
+        }
+    </script>
+</head>
+
+<body>
+    <h3>입력한 "역삼동" 검색결과입니다.</h3>
+    <P>
+        <a href="#none" onclick="returnAddr('12345','서울시 강남구 역삼동 CGV')">
+        12345 서울시 강남구 역삼동 CGV</a>
+    </P>
+    <p>
+        <a href="#none" onclick="returnAddr('34567','서울시 강남구 역삼동 맛집')">
+        34567 서울시 강남구 역삼동 맛집</a>
+    </p>
+    <p>
+        <a href="#none" onclick="returnAddr('67890','서울시 강남구 역삼동 메가박스')">
+        67890 서울시 강남구 역삼동 메가박스</a>
+    </p>
+</body>
+
+</html>

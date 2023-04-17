@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Test real</title>
+    <script>
+        // var redColor = document.getElementById("redB").style.color;
+        // var greenColor = document.getElementById("greenB").style.color;
+        // var blueColor = document.getElementById("blueB").style.color;
+
+        var changeColor = (color) => {
+            var txt = document.getElementById("changeText");
+            txt.style.color = color;
+        };
+
+    </script>
+</head>
+
+<body>
+    <p id="changeText">클릭한 버튼에 따라 다른 스타일이 적용됩니다.</p>
+    <p><button type="button" onclick="changeColor('red')">빨강</button> </p>
+    <p><button type="button" onclick="changeColor('green')">초록</button> </p>
+    <p><button type="button" onclick="changeColor('blue')">파랑</button> </p>
+</body>
+
+</html>

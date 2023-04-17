@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../frameWork/jquery_3.6.4.js"></script>
+    <style>
+        div a{
+            display: block;
+            width: 300px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+    <script>
+        $(function(){
+            // 감추기
+            $("a:last").click(function(){
+                // $("#pop").hide();
+                $("#pop").fadeOut();
+            })
+
+            // 보이기
+            $("a:first").click(function(){
+                $("#pop").fadeIn();
+            })
+
+            // 50%
+            $("a:eq(1)").click(function(){
+                $("#pop").fadeTo("slow",0.5);
+            })
+
+            // 100%
+            $("a:eq(2)").click(function(){
+                $("#pop").fadeTo("slow",1);
+            })
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <a href="#" id="in">보이기</a>
+    <a href="#">50%</a>
+    <a href="#">100%</a>
+    <a href="#">바꾸기</a>
+    <div id="pop">
+        <a href="#">감추기</a>
+    </div>
+</body>
+
+</html>

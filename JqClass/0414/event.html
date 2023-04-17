@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../JSclass/frameWork/jquery_3.6.4.js"></script>
+    <style type="text/css">
+        table{border:1px solid #aaa;margin: 20px; text-align: center;font-weight: bold; font-size: 20px;}
+        td{border: 1px solid #aaa;width: 100px;height: 100px;}
+        .sel{background: tomato;color: #fff;font-weight: bold;}
+    </style>
+    <script>
+        $(function(){
+            // 첫번째 칸에 sel 스타일 적용
+            // $("td:eq(0)").addClass("sel");
+            
+            // 클릭 했을때 스타일 적용
+            // $("td:first").click(function(){
+            //     $("td:first").addClass("sel");
+
+            // })
+            // js : obj . eventHandler = function(){}
+            // jq : $("selector").event(function(){})
+
+
+
+
+            // 마우스 오버 했을때 스타일 적용
+            // $("td").mouseover(function(){
+            //     $(this).addClass("sel");
+
+            // })
+            // // 아무으 아웃 했을때 스타일 적용
+            // $("td").mouseout(function(){
+            //     $(this).removeClass("sel");
+
+            // })
+
+
+            //hover = 이벤트의 한 종류이다. 이거는 그냥 해석용인 -> mouseenter + mouseleave
+            $("td").hover(function(){$(this).addClass("sel")}, function(){$(this).removeClass("sel")})
+
+
+
+            //2번셀에 스타일 적용
+            // $("td:eq(1)").addClass("sel");
+            // 3번부터 뒤로 다 스타일 적용
+            // $("td:gt(1)").addClass("sel");
+        })
+    </script>
+</head>
+<body>
+    <h2>이벤트</h2>
+    <table>
+        <tr>
+            <td>#1</td>
+            <td>#2</td>
+            <td>#3</td>
+            <td>#4</td>
+            <td>#5</td>
+        </tr>
+    </table>
+</body>
+</html>

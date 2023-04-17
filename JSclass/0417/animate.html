@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../frameWork/jquery_3.6.4.js"></script>
+    <style>
+        body{font-size: 26px;}
+        #pop{width: 200px;height: 120px;position: absolute;left: 80px;top: 80px;background: #09f;}
+    </style>
+    <script>
+        $(function(){
+            //크게 누르면 크기가 200 120 -> 800 300
+            $("a:first").click(function(){
+                $("#pop").animate({ width: "800px",height: "300px"}, 1000);
+            })
+        })
+    </script>
+</head>
+<body>
+    <a href="#">크게</a>
+    <a href="#">작게</a>
+    <div id="pop">
+    </div>
+</body>
+</html>

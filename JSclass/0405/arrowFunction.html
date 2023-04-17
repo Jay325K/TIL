@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrowFunction</title>
+    <style>
+
+    </style>
+    <script>
+        //es5
+        // function testFunc(){
+        //     alert("함수를 사용하였습니다.")
+        // }
+        // var execFunc = testFunc();
+
+        // var execFunc = function testFunc(){
+        //     alert("함수를 사용하였습니다.")
+        // };
+        // execFunc();
+
+        // es6 arrow func
+        // var execFunc = testFunc = () => {
+        //     alert("함수를 사용하였습니다.")
+        // };
+        // execFunc();
+
+        // 매개 변수가 없는 경우
+        // var execFunc = () =>{
+        //     alert("함수를 사용하였습니다.")
+        // };
+        // execFunc();
+
+
+        // es5 - 매개변수가 1개인 경우
+        // function testFunc(msg){
+        //     alert(msg);
+        // };
+        // testFunc("HelloWorld");
+
+
+        // es6 - 매개 변수가 1개인 경우
+        // var execFunc = function(msg){
+        //     alert(msg);
+        // };
+        // testFunc("HelloWorld");
+        // 위를 화살표 함수 사용한다면?
+        // var execFunc = (msg)=>{
+        //     alert(msg);
+        // };
+        // testFunc("HelloWorld");
+
+
+        // es6 매개 변수가 1개인 경우 () 생략
+        // var execFunc = msg => {
+        //     alert(msg);
+        // }
+        // testFunc("HelloWrold!!!");
+
+
+        // 실행할 문장이 1개인 경우   {} 생략
+        // var execFunc = msg => alert(msg);
+        // execFunc("안녕이다 짜샤!");
+
+
+        // 매개 변수가 2개 이상인 경우
+        // var execFunc = (msg, num) => {
+        //     alert(msg + "/" + num);
+        // }
+        // execFunc("HelloWorld!!!!!",100);
+
+
+//         함수문 없이 실행문 실행시키는 방법 function부분 빼고 그 다음부분들 괄호 여닫고, 마지막에 괄호 한번 더 여닫 ㅎ
+//         (function (){
+//             alert("HI!!");
+//         })();
+// 이게되네...
+//         (()=>{
+//             alert("hi~~~");
+//         })();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

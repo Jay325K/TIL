@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../frameWork/jquery_3.6.4.js"></script>
+    <style type="text/css">
+        h2,p{padding: 0;margin: 0;}
+        h2{font-size: 14px;cursor: pointer;}
+        p{height: 100px;background: #eee;display: none;}
+    </style>
+    <script>
+        $(function(){
+            // $(".qna1 h2").click(function(){
+            //     $(".qna1 p").slideDown("fast");
+            //     $(".qna2 p").slideUp("fast");
+            //     $(".qna3 p").slideUp("fast");
+            // })
+
+            // $(".qna2 h2").click(function(){
+            //     $(".qna1 p").slideUp("fast");
+            //     $(".qna2 p").slideDown("fast");
+            //     $(".qna3 p").slideUp("fast");
+            // })
+
+            // $(".qna3 h2").click(function(){
+            //     $(".qna1 p").slideUp("fast");
+            //     $(".qna2 p").slideUp("fast");
+            //     $(".qna3 p").slideDown("fast");
+            // })
+
+            $("div h2").click(function(){
+                $("div p").not(this).next("p").slideUp("fast");
+                $(this).next().slideToggle("fast");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="qna1">
+        <h2>질문 1</h2>
+        <p>답변 1</p>
+    </div>
+    <div class="qna2">
+        <h2>질문 2</h2>
+        <p>답변 2</p>
+    </div>
+    <div class="qna3">
+        <h2>질문 3</h2>
+        <p>답변 3</p>
+    </div>
+</body>
+</html>

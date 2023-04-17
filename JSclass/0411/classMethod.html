@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+// function 방식
+        function Car (name,year){
+                this.name = name; //이름을 꼭 같게 만들 필요는 없지만, 다르게 할  필요가 더  없다!
+                this.year = year;
+            
+            age() {
+                const date = new Date().getFullYear();
+                return date - this.year;
+            }
+        }
+
+        const myCar = new Car("Ford", 2014);
+        document.getElementById("demo").innerHTML = "My car is : " + myCar.age() + "/ years old";
+
+
+// class 방식
+        // class Car {
+        //     constructor(name, year){
+        //         this.name = name; //이름을 꼭 같게 만들 필요는 없지만, 다르게 할  필요가 더  없다!
+        //         this.year = year;
+        //     }
+        //     age(){
+        //         const date = new Date().getFullYear();
+        //         return date - this.year;
+        //     }
+        // }
+
+        // const myCar = new Car("Ford", 2014);
+        // document.getElementById("demo").innerHTML = "My car is : " + myCar.age() + "/ years old";
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #big_img{width: 630px; height: 480px;}
+        .thumb_img img{width: 150px; height: 105px; margin-right: 5px; cursor: pointer;}
+    </style>
+    <script type="text/javascript">
+        // function changeImage(img_url){
+        //     var big_img = document.getElementById("big_img");
+        //     big_img.src = img_url;
+
+        // }
+
+        // document.addEventListener("DOMContentLoaded", function () {
+        //         var big_img = document.getElementById("big_img");
+        //         var thumb_imgs = document.querySelectorAll(".thumb_img img");
+
+        //         for (var i = 0; i < thumb_imgs.length; i++) {
+        //             thumb_imgs[i].addEventListener("click", function () {
+        //                 big_img.src = this.src;
+        //             });
+        //         }
+        //     });
+        document.addEventListener("DOMContentLoaded",function (){
+            var big_img = document.getElementById("big_img");
+            var thumb_img = document.querySelectorAll(".thumb_img img");
+
+            for (var i=0;i < thumb_img.length;i++){
+                thumb_img[i].addEventListener("click",function(){
+                    big_img.src = this.src;
+                })
+            }
+        });
+            // 속성 값 가져오기
+            // HTML-DOM  - html에 실제 있는 속성들만 제어 가능 ㅜㅜ 
+            // alert(big_img.src);
+            // alert(big_img.abc);
+
+            // DOM Core - 스크립트가 지원하기만 한다면, 원래 있는 기능인지 아닌지 상관 NO!!!!
+            // 일치하는 단어를 찾아줌!!!
+            // alert( big_img.getAttribute("src"));
+            // alert( big_img.getAttribute("abc"));
+
+
+
+            // 속성값 변경 or 속성 추가하기  (해당 속성값이 있으면 바꾸기, 없으면 추가를 기본적으로 해줌!)
+            // HTML-DOM
+            // big_img.src = "../img/tulip.png";
+            // big_img.abc = "테스트";
+
+            // big_img.title = "바뀌었당!";
+            // big_img.def = "this is 이뮈쥐 크궤보귀~~~~";
+
+            // DOM Core
+            // big_img.setAttribute("src","../img/tulip.png");
+            // big_img.setAttribute("abc","테스트");
+
+            // big_img.setAttribute("title","이것은 돔 속성의 어투뤼뷰트를 쓴 타잍흘 임둥");
+            // big_img.setAttribute("def","html에 없는 속성을 셋투어투뤼뷰튜를 사용해서 추가해보앗숨둥!");
+
+
+            
+
+        
+    </script>
+</head>
+
+<body>
+    <p>
+        <img src="../img/rose.jpg" id="big_img" alt="원본 이미지" abc="big_imgTest">
+    </p>
+    <p class="thumb_img">
+        <img src="../img/rose.jpg">
+        <img src="../img/tulip.png">
+        <img src="../img/bird.jpg">
+        <img src="../img/blueberry.jpg">
+
+        <!-- <img src="../img/rose.jpg" onclick="changeImage('../img/rose.jpg')" alt="">
+        <img src="../img/tulip.png" onclick="changeImage('../img/tulip.png')" alt="">
+        <img src="../img/bird.jpg" onclick="changeImage('../img/bird.jpg')" alt="">
+        <img src="../img/blueberry.jpg" onclick="changeImage('../img/blueberry.jpg')" alt=""> -->
+    </p>
+</body>
+
+</html>

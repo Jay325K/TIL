@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <button type="button" onclick="getFile(myDisplayer)">car</button>
+    <button type="button" onclick="getFile2(myDisplayer)">fruit</button>
+    <script>
+        // function myDisplayer(value){    
+        //     demo.innerHTML = value;
+        // }
+        // let myPromise = new Promise(function(myResolve, myReject){
+        //     let req = new XMLHttpRequest();
+        //     req.open('Get', "myCar.html");
+        //     req.onload = function(){
+        //         if(req.status == 200){
+        //             myCallback(this.responseText);
+        //         }else{
+        //             myCallback("Error: " + req.status);
+        //         }
+        //     };
+        //     req.send();
+        // });
+
+        //  콜백 2
+        // let prom = new Promise(function(resolve, reject){
+        //     resolve()
+        //     reject()
+        // });
+        // promise 2
+        let prom = new Promise(function(resolve, reject){
+            let req = new XMLHttpRequest();
+            req.open('Get', "myCar.html");
+            req.onload = function(){
+                if(req.status == 200){
+                    resolve(this.responseText);
+                }else{
+                    reject("File Not Found!!");
+                }
+            };
+            
+            req.send();
+        });
+        prom.then(
+            function(value){myDisplayer(value)},
+            function(error){myDisplayer(error)}
+        );
+
+
+
+        // function getFile(myCallback){
+        //     let req = new XMLHttpRequest();
+        //     req.open('Get', "myCar.html");
+        //     req.onload = function(){
+        //         if(req.status == 200){
+        //             myCallback(this.responseText);
+        //         }else{
+        //             myCallback("Error: " + req.status);
+        //         }
+        //     }
+        //     req.send();
+        // }
+
+        // function getFile2(myCallback){
+        //     let req = new XMLHttpRequest();
+        //     req.open('Get', "fruits.html");
+        //     req.onload = function(){
+        //         if(req.status == 200){
+        //             myCallback(this.responseText);
+        //         }else{
+        //             myCallback("Error: " + req.status);
+        //         }
+        //     }
+        //     req.send();
+        // }
+        // getFile(myDisplayer);
+        // # 콜백 1 - 위 아래 무조건 동시에 시작된다 오류가있어도!!
+        // setTimeout(function(){myFunction('Good day!!')}, 3000);
+
+        // function myFunction(value) {
+        //     document.getElementById("demo").innerHTML = "Have a Good Day!";
+        // }
+
+
+
+        // let myPromise = new Promise(function(myResolve, myReject){
+        //     setTimeout(function() {myResolve("Good Day!!");},3000);
+        // });
+        // myPromise.then(function(value){
+        //     document.getElementById("demo").innerHTML = value;
+        // })
+
+
+        //  # promise 1 - prom 끝나기 전까지 절대 Prom.then실행되지 않는다!!
+        // let prom = new Promise(function(resolve, reject){
+        //     setTimeout(function() {resolve("Good Day!!");},3000);
+        // });
+        // prom.then(
+        //     function(value){
+        //         document.getElementById("demo").innerHTML = value;
+        //     },
+        //     function(){}
+        // )
+
+
+
+    </script>
+</body>
+
+</html>

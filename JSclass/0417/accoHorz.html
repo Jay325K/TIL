@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../frameWork/jquery_3.6.4.js"></script>
+    <style type="text/css">
+        img{width: 400px;height: 300px;}
+        ul,li{list-style: none;margin: 0;padding: 0;}
+
+        .accor ul{width: 500px;height: 300px;position: relative; overflow: hidden;}
+        .accor ul li{position: absolute;top: 0;background: #000;}
+        .accor ul li img{opacity: 0.6;}
+        .accor ul li img:hover{opacity: 1!important}
+
+        .acco1{left: 0;}
+        .acco2{left: 50px;}
+        .acco3{left: 100px;}
+    </style>
+    <script>
+        $(function(){
+            $(".accor ul li").click(function(){
+                $(".accor ul li img").css({opacity: 0.6});
+                $(this).find("img").css({opacity: 1});
+
+                if ($(this).hasClass("acco1")){
+                    $(".acco2").animate({left:400});
+                    $(".acco3").animate({left:450});
+                }
+                else if ($(this).hasClass("acco2")){
+                    $(".acco2").animate({left:50});
+                    $(".acco3").animate({left:450});
+                }
+                else if ($(this).hasClass("acco3")){
+                    $(".acco2").animate({left:50});
+                    $(".acco3").animate({left:100});
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="accor">
+        <ul>
+            <li class="acco1">
+                <a href="#">
+                    <img src="../img/rose.jpg" alt="rose">
+                </a>
+            </li>
+            <li class="acco2">
+                <a href="#">
+                    <img src="../img/blueberry.jpg" alt="blueberry">
+                </a>
+            </li>
+            <li class="acco3">
+                <a href="#">
+                    <img src="../img/tulip.png" alt="tulip">
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>5~10 사이 값 입력</p>
+    <input type="text" id="demo">
+    <button type="button" onclick="myFunction()">Test Input</button>
+    <p id="rst"></p>
+    <script>
+        function myFunction(){
+            let x = document.getElementById("demo").value;
+
+            try{
+                if(x.trim() == "") throw "입력된 값이 없습니다";
+                if(x.trim() < 5) throw "값이 5보다 크다 짜샤";
+            }catch(err){
+                document.getElementById("rst").innerHTML =`
+                입력된 값 : ${x}<br>
+                오류 내용 : ${err}
+                `
+            }finally{
+                document.getElementById("demo").value='';
+            }
+        }
+
+
+    
+    </script>
+</body>
+</html>
