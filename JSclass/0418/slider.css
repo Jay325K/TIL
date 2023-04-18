@@ -1,0 +1,49 @@
+/* img{width: 600px;height: 1200px;} */
+
+ul{display: flex;position: relative;}/*position필수 왜? 움직여야 하니까*/
+li a{display: inline-flex;}
+
+.main_img h2{
+    /* 원래 이런식으로 없애야 함 */
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-align: none;
+}
+.mask img{
+    width: 600px;
+    height: 1200px;
+}
+.mask ul{
+    display: flex;
+    width: 1800px;
+     position: relative;  /*움직일 수 있는 상태*/
+}
+.mask{
+    width: 600px;
+    overflow: hidden ;/*이미지 하나만 볼꺼니까!*/
+    margin: auto;
+}
+
+.pager{
+    font-size: 40px;
+    text-align: center;
+}
+/* .pager a{ 실무코드
+    display: inline-block;
+    width: 30px; height: 30px;
+    background: #565656;
+    text-indent: -9999px;
+    border-radius: 50%;
+}
+.pager .active{
+    background: #242424;
+} */

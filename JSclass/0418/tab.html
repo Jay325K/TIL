@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../frameWork/jquery_3.6.4.js"></script>
+    <style>
+        h2,p,ul,li{margin: 0;padding: 0;}
+        ul,li{list-style: none;}
+        a{text-decoration: none;}
+
+        .hide{display: none;} /*실제론 hide이렇게 안씀, */
+        .tabs{width: 300px;height: 240px;border: 1px solid #333; position: relative;}
+        .tab_list ul{display: flex;}
+        .tab_list li{background: #eee;border: 1px solid #999; height: 40px;width: 33.3%;}
+        .tab_list li a{display: block;height: 100%; 
+            /* text-align: center; line-height: 40px; */ /*얘는 박스 높이 맞춰서 만듦*/
+            display: flex;justify-content: center;align-items: center; /*위 코드보다 박스 높이가 바뀌어도 알아서!*/
+        }
+        .cont1{width: 100%;height: 200px;background: tomato;position: absolute;left: 0;top: 40px;}
+        .cont2{width: 100%;height: 200px;background: rgb(71, 255, 117);position: absolute;left: 0;top: 40px;display: none;}
+        .cont3{width: 100%;height: 200px;background: rgb(71, 197, 255);position: absolute;left: 0;top: 40px;display: none;}
+
+        .active{background: #333;color: #fff;font-weight: bold;}
+    </style>
+    <script>
+        $(function(){
+            // $("ul li a:first").click(function(){
+            //     $(".cont1").show();
+            //     $(this).addClass("active");
+            //     $("ul li a:eq(1), ul li a:eq(2)").removeClass("active");
+            // });
+            // $("ul li a:eq(1)").click(function(){
+            //     $(".cont2").show();
+            //     $(this).addClass("active");
+            //     $("ul li a:eq(0), ul li a:eq(2)").removeClass("active");
+            // });
+            // $("ul li a:eq(2)").click(function(){
+            //     $(".cont3").show();
+            //     $(this).addClass("active");
+            //     $("ul li a:eq(1), ul li a:eq(0)").removeClass("active");
+            // });
+
+            $(".tab_list li").click(function(){
+                let idx = $(this).index();
+                // console.log(idx);
+                // $(".tab_content").hide(); //필터들은 메소드 형태로 되어있다
+                // $(`.tab_content div:eq(${idx})`).show(); ----다시 공부
+
+                let sel = $(".tab_content div").eq(idx);
+                $(".tab_content div").not(sel).hide();
+                $(".tab_content div").eq(idx).show();
+
+                $(".tab_list a").not($(this).find("a")).removeClass("active");
+                $(this).find("a").addClass("active");
+                
+            })
+        });
+
+    </script>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab_list">
+            <h2 class="hide">Tab Title</h2>
+            <ul>
+                <li><a href="#" >Title 1</a> </li>
+                <li><a href="#" >Title 2</a> </li>
+                <li><a href="#" >Title 3</a> </li>
+            </ul>
+        </div>
+        <div class="tab_content">
+            <div class="cont1">
+                <h2 class="hide"> Title 1</h2>
+                <p>content1</p>
+                <p>content1</p>
+                <p>content1</p>
+            </div>
+            <div class="cont2">
+                <h2 class="hide"> Title 2</h2>
+                <p>content2</p>
+                <p>content2</p>
+                <p>content2</p>
+            </div>
+            <div class="cont3">
+                <h2 class="hide"> Title 3</h2>
+                <p>content3</p>
+                <p>content3</p>
+                <p>content3</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

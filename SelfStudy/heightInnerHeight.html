@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Height vs InnerHeight</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<style>
+		div {
+			background-color: lightgray;
+			padding: 10px;
+			margin: 10px;
+			border: 1px solid black;
+			height: 200px;
+			width: 300px;
+			box-sizing: border-box;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			var height = $('div').height();
+			var innerHeight = $('div').innerHeight();
+			console.log('Height: ' + height + 'px');
+			console.log('InnerHeight: ' + innerHeight + 'px');
+		});
+	</script>
+</head>
+<body>
+	<div>Example DIV</div>
+</body>
+</html>

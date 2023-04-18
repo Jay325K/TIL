@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../frameWork/jquery_3.6.4.js"></script>
+    <style>
+        body,div{margin: 0; padding: 0;}
+        body{overflow-y: scroll;}
+        .wrap{height: 661px; background: url(./images/content.jpg) no-repeat center; position: absolute; width:100%; top:70px}
+
+        .popup{background: #a9e3f9 url(./images/banner.jpg) no-repeat center ; 
+            position: relative; 
+            height: 70px; width: 100%;}
+        .popup a{display: block; width: 38px; height: 38px; 
+            background: url(./images/close.jpg) no-repeat;
+            text-indent: -9999px;
+            position: absolute; right: 16px; top: 16px;}
+    </style>
+    <script>
+        $(function(){
+            $(".popup a").click(function(){
+                // $(this).parent()
+                // $("popup").slideUp() //
+                $("popup").animate();//js 애니메이션이 안된다고 한다면 꼭 js만의 문제가 아니다.움직일 수 있는 css 가 필요하다.
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="popup">
+        <a href="#">닫기</a>
+    </div>
+    <div class="wrap">
+        <header></header>
+        <main></main>
+        <footer></footer>
+    </div>
+</body>
+</html>
