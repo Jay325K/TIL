@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Slick Plugin Test</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+  <style>
+    /* 슬라이드 쇼를 포함하는 div의 스타일 */
+    .slider {
+      width: 80%;
+      margin: auto;
+    }
+    /* 슬라이드 쇼 이미지의 스타일 */
+    .slider img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <img src="https://picsum.photos/800/300?random=1" alt="image1">
+    <img src="https://picsum.photos/800/300?random=2" alt="image2">
+    <img src="https://picsum.photos/800/300?random=3" alt="image3">
+    <img src="https://picsum.photos/800/300?random=4" alt="image4">
+    <img src="https://picsum.photos/800/300?random=5" alt="image5">
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.slider').slick();
+    });
+  </script>
+</body>
+</html>

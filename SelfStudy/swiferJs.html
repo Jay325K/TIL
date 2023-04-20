@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Swiper Slider Test</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <style>
+    /* 슬라이드 쇼를 포함하는 div의 스타일 */
+    .swiper-container {
+      width: 80%;
+      margin: auto;
+    }
+    /* 슬라이드 쇼 이미지의 스타일 */
+    .swiper-slide img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://picsum.photos/800/300?random=1" alt="image1"></div>
+      <div class="swiper-slide"><img src="https://picsum.photos/800/300?random=2" alt="image2"></div>
+      <div class="swiper-slide"><img src="https://picsum.photos/800/300?random=3" alt="image3"></div>
+      <div class="swiper-slide"><img src="https://picsum.photos/800/300?random=4" alt="image4"></div>
+      <div class="swiper-slide"><img src="https://picsum.photos/800/300?random=5" alt="image5"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true,
+      },
+      autoplay: {
+        delay: 3000,
+      },
+      loop: true,
+    });
+  </script>
+</body>
+</html>

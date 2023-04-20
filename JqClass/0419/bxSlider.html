@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="../../../JSclass/frameWork/jquery_3.6.4.js"></script>
+    <script src="../bxslider-4-4.2.12/src/js/jquery.bxslider.js"></script>
+    <script>
+        $(function () {
+            $(".slider").bxSlider();
+            $(".gallery").bxSlider();
+
+            $('.bxslider').bxSlider({
+                adaptiveHeight: true,
+                slideWidth: 600,
+                // pager:false //밑에 점같은애들보고 페이저라고 하나봄
+                // pagerType:'short', //full은 점 short 는 '1/3' 이런 글자
+                // pagerShortSeparator:'♥' //If pagerType: 'short' 일때, 구분자 기호 변경 가능!!
+
+
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <!-- <div data-slider-id="zrodwy"></div>
+    <script type="text/javascript" src="https://sliderui.com/sliders/zrodwy.js"></script> -->
+    <div class="slider_wrap">
+        <div class="slider">
+            <div>I am a slide.</div>
+            <div>I am another slide.</div>
+        </div>
+    </div>
+
+    <p>&nbsp;</p>
+
+    <div class="galley_wrap">
+        <ul class="bxslider">
+            <li><img src="../../../JSclass/img/bird.jpg" alt=""> </li>
+            <li><img src="../../../JSclass/img/blueberry.jpg" alt=""> </li>
+            <li><img src="../../../JSclass/img/rose.jpg" alt=""> </li>
+        </ul>
+    </div>
+</body>
+
+</html>
