@@ -1,0 +1,19 @@
+ul, li{
+    
+}
+input, button{
+    vertical-align: middle;
+}
+button{
+    cursor: pointer;
+}
+address{
+    font-style: italic;
+}
+.hide{
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    position: absolute;
+    margin: 1px;
+}
