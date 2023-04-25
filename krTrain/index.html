@@ -8,13 +8,6 @@
     <script src="../JSclass/frameWork/jquery_3.6.4.js"></script>
     <link rel="stylesheet" href="reset.css" type="text/css">
     <style>
-        /* css 리셋 */
-        * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        }
-
         /* 헤더 정렬 스타일 */
         header {
         
@@ -90,13 +83,8 @@
 
     </style>
     <script>
-        // $(function(){
-        //     $("hambug").click(function(){
-        //         $("nav").show();
-        //     })
-        // })
-        // 햄버거 클릭 시 네비게이션 메뉴 토글
         $(function(){
+            // 햄버거 클릭 시 네비게이션 메뉴 토글
             const hambug = document.querySelector('.hambug');
             const nav = document.querySelector('.gnb');
 
@@ -120,89 +108,90 @@
     <img src="images/main_img1.jpg" alt="메인 이미지 배너">
     </aside>
 
-    <nav class="gnb">
-    <h2>주요메뉴</h2>
-        <ul>
-            <li>
-                <a href="#none">열린경영</a>
-                <ul>
-                    <li><a href="#none">경영공시</a> </li>
-                    <li><a href="#none">윤리경영</a> </li>
-                    <li><a href="#none">인권경영</a> </li>
-                    <li><a href="#none">안전/품질/환경 경영</a> </li>
-                    <li><a href="#none">사회공헌</a> </li>
-                </ul>
-            </li>
+    <div class="gnb_wrap">
+        <nav class="gnb">
+        <h2>주요메뉴</h2>
+            <ul>
+                <li>
+                    <a href="#none">열린경영</a>
+                    <ul>
+                        <li><a href="#none">경영공시</a> </li>
+                        <li><a href="#none">윤리경영</a> </li>
+                        <li><a href="#none">인권경영</a> </li>
+                        <li><a href="#none">안전/품질/환경 경영</a> </li>
+                        <li><a href="#none">사회공헌</a> </li>
+                    </ul>
+                </li>
+            
+                <li>
+                    <a href="#none">고객소통</a>
+                    <ul>
+                        <li><a href="#none">고객만족경영</a> </li>
+                        <li><a href="#none">전자민원창구</a> </li>
+                        <li><a href="#none">부조리신고센터</a> </li>
+                        <li><a href="#none">불공정하도급센터</a> </li>
+                        <li><a href="#none">KR기술마켓</a> </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#none">정보마당</a>
+                    <ul>
+                        <li><a href="#none"> KR소식</a> </li>
+                        <li><a href="#none"> 조달공고</a> </li>
+                        <li><a href="#none"> 정보공개 안내</a> </li>
+                        <li><a href="#none"> 사전정보공표</a> </li>
+                        <li><a href="#none"> 채용정보</a> </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#none">사업소개</a>
+                    <ul>
+                        <li><a href="#none">철도건설</a> </li>
+                        <li><a href="#none">철도자산관리</a> </li>
+                        <li><a href="#none">철도시설관리</a> </li>
+                        <li><a href="#none">철도건설공법</a> </li>
+                        <li><a href="#none">사업품질관리</a> </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#none">공단소개</a>
+                    <ul>
+                        <li><a href="#none">KR소개</a> </li>
+                        <li><a href="#none">CEO</a> </li>
+                        <li><a href="#none">주요경영성과</a> </li>
+                        <li><a href="#none">업무계획</a> </li>
+                        <li><a href="#none">지역본부</a> </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#none">KR 홍보</a>
+                    <ul>
+                        <li><a href="#none">보도ㆍ참고ㆍ해명자료</a> </li>
+                        <li><a href="#none">홍보영상</a> </li>
+                        <li><a href="#none">철도현장사진</a> </li>
+                        <li><a href="#none">브로슈어</a> </li>
+                        <li><a href="#none">매거진</a> </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
         
-            <li>
-                <a href="#none">고객소통</a>
-                <ul>
-                    <li><a href="#none">고객만족경영</a> </li>
-                    <li><a href="#none">전자민원창구</a> </li>
-                    <li><a href="#none">부조리신고센터</a> </li>
-                    <li><a href="#none">불공정하도급센터</a> </li>
-                    <li><a href="#none">KR기술마켓</a> </li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#none">정보마당</a>
-                <ul>
-                    <li><a href="#none"> KR소식</a> </li>
-                    <li><a href="#none"> 조달공고</a> </li>
-                    <li><a href="#none"> 정보공개 안내</a> </li>
-                    <li><a href="#none"> 사전정보공표</a> </li>
-                    <li><a href="#none"> 채용정보</a> </li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#none">사업소개</a>
-                <ul>
-                    <li><a href="#none">철도건설</a> </li>
-                    <li><a href="#none">철도자산관리</a> </li>
-                    <li><a href="#none">철도시설관리</a> </li>
-                    <li><a href="#none">철도건설공법</a> </li>
-                    <li><a href="#none">사업품질관리</a> </li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#none">공단소개</a>
-                <ul>
-                    <li><a href="#none">KR소개</a> </li>
-                    <li><a href="#none">CEO</a> </li>
-                    <li><a href="#none">주요경영성과</a> </li>
-                    <li><a href="#none">업무계획</a> </li>
-                    <li><a href="#none">지역본부</a> </li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#none">KR 홍보</a>
-                <ul>
-                    <li><a href="#none">보도ㆍ참고ㆍ해명자료</a> </li>
-                    <li><a href="#none">홍보영상</a> </li>
-                    <li><a href="#none">철도현장사진</a> </li>
-                    <li><a href="#none">브로슈어</a> </li>
-                    <li><a href="#none">매거진</a> </li>
-                </ul>
-            </li>
-
-        </ul>
-    </nav>
-        
-    <div class="search">
-        <a href="#none">검색 열기</a>
-        <form action="" name="" method="">
-            <fieldset>
-                <legend>검색</legend>
-                <label for=""></label>
-                <input type="text" name="" id="">
-            </fieldset>
-        </form>
+        <div class="search">
+            <a href="#none">검색 열기</a>
+            <form action="" name="" method="">
+                <fieldset>
+                    <legend>검색</legend>
+                    <label for=""></label>
+                    <input type="text" name="" id="">
+                </fieldset>
+            </form>
+        </div>
     </div>
-        
 
         <main id="main" class="main">
             <section class="main_img">

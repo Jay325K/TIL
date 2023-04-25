@@ -1,5 +1,39 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    } */
+h1,h2,h3{
+    margin: 0;
+    font-weight: normal;
+}
 ul, li{
-    
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+  }
+  html {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  strong, em {
+    font-weight: normal;
+    font-style: normal;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+  }
+legend{
+    display: none;
+    visibility: hidden;
+}
+fieldset{
+    border-style: none;
 }
 input, button{
     vertical-align: middle;
@@ -16,4 +50,8 @@ address{
     overflow: hidden;
     position: absolute;
     margin: 1px;
+}
+
+footer{
+    display: none;
 }
