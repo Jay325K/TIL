@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+            margin-bottom: 20px;
+        }
+
+        .h1 {
+            text-align: center;
+        }
+
+        .gnb , .footer{
+            padding: 20px;
+            font-size: 12px;
+            background: gray;
+            color: #fff;
+            text-align: center;
+        }
+        .main{
+            width: 960px;
+            margin: auto;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .cont {
+            width: 300px;
+            height: 300px;
+            font-size: 30px;
+            background: burlywood;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+        }
+        
+        @media screen and (max-width:960px) {
+            .main{
+                width: 640px;
+            }
+        }
+        @media screen and(max-width:640px){
+            .main{
+                width: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>LOGO</h1>
+        <div class="gnb">GNB</div>
+    </div>
+    <div class="main">
+        <div class="cont">1</div>
+        <div class="cont">2</div>
+        <div class="cont">3</div>
+        <div class="cont">4</div>
+        <div class="cont">5</div>
+        <div class="cont">6</div>
+    </div>
+    <div class="footer">FOOTER</div>
+</body>
+
+</html>

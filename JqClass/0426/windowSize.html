@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>윈도우 사이즈 알아내기</title>
+</head>
+<body>
+	<p id="windowSize"></p>
+
+	<script>
+		// 윈도우 사이즈를 알아내는 함수
+		function getWindowSize() {
+			var width = window.innerWidth
+			|| document.documentElement.clientWidth
+			|| document.body.clientWidth;
+
+			var height = window.innerHeight
+			|| document.documentElement.clientHeight
+			|| document.body.clientHeight;
+
+			return {width: width, height: height};
+		}
+
+		// 윈도우 사이즈를 표시하는 함수
+		function displayWindowSize() {
+			var windowSize = getWindowSize();
+			document.getElementById("windowSize").innerHTML = "윈도우 사이즈: " + windowSize.width + " x " + windowSize.height;
+		}
+
+		// 윈도우 사이즈를 처음 로딩할 때 표시
+		displayWindowSize();
+
+		// 윈도우 사이즈가 변경될 때마다 표시
+		window.addEventListener("resize", displayWindowSize);
+	</script>
+</body>
+</html>

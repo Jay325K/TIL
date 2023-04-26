@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국철도시설공단</title>
+
+    <style type="text/css">
+        /* 초기화 */
+        body, h1, h2, h3, p, div, ul, li, form, fieldset, legend, input, button{
+            margin: 0;
+            padding: 0;
+        }
+        a {
+        color: inherit;
+        text-decoration: none;
+        }
+
+        body, input, button{
+            font-family: "나눔고딕","맑은고딕", sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        ul, li{
+            list-style: none;
+        }
+        img, fieldset{
+            border: 0 none;
+        }
+        input, button{
+            vertical-align: middle;
+        }
+        button{
+            cursor: pointer;
+        }
+        address{
+            font-style: normal;
+        }
+
+        /* 공통클래스 */
+        /* 감추기 코드 */
+        .hide{
+            width: 0px;
+            height: 0px;
+            overflow: hidden;
+            position: absolute;
+            margin: -1px;
+        }
+
+        /* 스타일 적용 */
+        .header{
+            height: 58px;
+            background-color: #fff;
+            border-top: 2px solid #10218b;
+            margin: auto;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 2px 3px 3px #7a7a82;
+        }
+        /* .logo{
+            width: 192px;
+
+        } */
+        .logo a{
+            display: block;
+            width: 192px;
+            height: 58px;
+            margin: auto;
+            background: url(images/header_logo.gif) repeat;
+            text-indent: -9999px;
+        }
+
+        /*gnb*/
+        .gnb_wrap{
+            background: #eee;
+        }
+        .gnb{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            background: rgba(0,0,0,0.8);
+            color: #eee;
+            display: none;
+        }
+        .gnb h2{
+            background: rgb(0,136,255);
+            color: #fff;
+            padding: 15px;
+        }
+        .gnb ul{
+            width: 94%;
+            margin: auto;
+        }
+        .gnb > ul > li > a{
+            font-size: 16px;
+            display: block;
+            line-height: 50px;
+            border-bottom: 1px solid #eee;
+        }
+        .gnb > ul > li > a:before{
+            content: "+";
+            margin: 0 15px 0 5px;
+        }
+        .gnb > ul > li > a:hover{
+            color: gold;
+            border-bottom: 1px solid gold;
+        }
+        .gnb ul ul a{
+            display: block;
+            padding: 10px;
+        }
+        .gnb ul ul a:hover{
+            background: #000;
+            color: gold;
+        }
+        .gnb ul ul{
+            display: none;
+            /*이후에 클릭하면 펼쳐지도록 Jqaury 사용*/
+        }
+
+        .menu_open{
+            width: 58px;
+            height: 58px;
+            background: url(images/header_menu.gif) no-repeat;
+            text-indent: -9999px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .menu_close{
+            background: url(images/btn_close.png) center no-repeat;
+            left: initial;
+            right: 0;
+        }
+
+        /* search */
+        .search_open{
+            width: 58px;
+            height: 58px;
+            background: url(images/header_search.gif) no-repeat;
+            text-indent: -9999px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .search form{
+            position: absolute;
+            left: 0;
+            top: 58px;
+            width: 100%;
+            height: 60px;
+            background: #333;
+            padding: 10px;
+            box-sizing: border-box;
+            display: none;
+        }
+        .search input{
+            font-size: 26px;
+            width: 100%;
+            background: transparent;
+            border: 0 none;
+            border-bottom: 2px solid #eee;
+            color: #eee;
+        }
+        .search button{
+            width: 40px;
+            height: 40px;
+            border: 0 none;
+            background: url(images/zoom_s.png) no-repeat center;
+            text-indent: -9999px;
+            position: absolute;
+            right: 10px;
+            top: 5px;
+        }
+
+        /* main */
+        /* .main{
+            
+        } */
+
+        /* main image*/
+        .main_image img{
+            width: 100%;
+        }
+        /* .main_image1{
+
+        } */
+
+        /* main content */
+        .main_cont{
+            padding: 0 2%;
+            margin-top: -20px 0 10px;
+            position: relative;
+        }
+        .biz_info{
+            border-top: 2px solid #333;
+            margin-bottom: 15px;
+        }
+        .biz_info ul{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .biz_info ul li{
+            width: 20%;
+        }
+        .biz_info img{
+            width: 100%;
+        }
+        .biz_top_mg{
+            margin-top: -5px;
+        }
+    
+
+        /* biz bottom content */
+        .main_cont_bottom{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        /* kr information */
+        .kr_info{
+            width: 49%;
+        }
+        .notice{
+            margin-bottom: 10px;
+        }
+        .notice h3, .news h3, .employ h3{
+            background: #0062c3;
+            color: #fff;
+            padding: 5px 0 5px 15px;
+        }
+        .notice li, .news li, .employ li{
+            padding-left: 11px;
+            background: url(images/bullet.png)no-repeat left center;
+            /* 내용이 상자보다 길어질것 같으면 말 줄임표로 바꾸기 */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            line-height: 26px;
+        }
+
+        /* community content */
+        .comm{
+            width: 49%;
+            border: 1px solid #aaa;
+            box-sizing: border-box;
+        }
+        .open_biz h3{
+            padding: 15px 0 10px 15px;
+            background:  url(images/manage_01.gif) no-repeat right bottom;
+        }
+        .open_biz ul{
+            background-color: #73b41c;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .open_biz li, .customer li, .adv li{
+            padding-left: 10px;
+            background: url(images/bullet.png) no-repeat left center;
+            margin: 5px 15px 5px 0;
+        }
+        .customer h3{
+            padding: 15px 0 10px 15px;
+            background: url(images/manage_02.gif) no-repeat right bottom;
+        }
+        .customer ul{
+            background-color: rgb(67,146,174);
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .adv h3{
+            padding: 15px 0 10px 15px;
+            background:url(images/manage_03.gif) no-repeat right bottom;
+        }
+        .adv ul{
+            background-color: rgb(105, 98,168);
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* footer */
+        .footer{
+            border-top: 1px solid #999;
+            padding: 10px 2%;
+        }
+        .footer_link{
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .footer_link h2 a{
+            /* 아래 백그라운드 효과는 절대 h2에 넣으면 안된다 */
+            background: #37363c url(images/arrow.gif)no-repeat 96% center;
+            /* transform: scaleY(-1); */
+            display: block;
+            /* background: #37363c; */
+            color: rgb(243, 167, 67);
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .footer_link ul{
+            width: 100%;
+            height: 251px;
+            background: rgba(54, 54, 60, 0.8);
+            position: absolute;
+            color: #eee;
+            left: 0;
+            top: 51px;
+            /* top:-251px; 슬라이드 위로 올라간다 했을때 */
+            height: 0;
+            overflow: hidden;
+            top: 0;
+        }
+        .footer_link a{
+            display: block;
+            padding: 10px;
+            border-bottom: 1px solid #999;
+        }
+        .footer_link a:last-child{
+            border-bottom: 0 none;
+        }
+        .footer_link a:hover{
+            background: #000;
+            color: #fcd218;
+        }
+
+        /* footer text */
+        .bld{
+            font-weight: bold;
+        }
+        .blue{
+            color: #2a79d5;
+        }
+    </style>
+
+    <script src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(function(){
+            $(".menu_open").click(function(){
+                $(".gnb").toggle();
+                $(this).toggleClass("menu_close")
+
+                // if($(this).text() == "메뉴 열기"){
+                //     $(this).text("메뉴 닫기")
+                // } else{
+                //     $(this).text("메뉴 열기")
+                // }
+            })
+            $(".gnb > ul > li").click(function(){
+                $(".gnb ul ul").not($(this).find("ul")).slideUp("fast");
+                $(this).find("ul").slideToggle("fast");
+            })
+
+            $(".search_open").click(function(){
+                $(".search form").slideToggle("fast");
+            })
+
+            // footer_link 
+            var ckNum = 0;
+            $(".footer_link h2 a").click(function(){
+                if(ckNum == 0){
+                    $(".footer_link ul").animate({height:251, top:51},"fast");
+                    ckNum =1;
+                }else{
+                    $(".footer_link ul").animate({height:0, top:0},"fast");
+                    ckNum =0;
+                }
+            })
+        })
+    </script>
+</head>
+
+
+<body>
+    <header id="header" class="header">
+        <h1 class="logo"><a href="#none">한국철도시설공단</a></h1>
+
+        <div class="gnb_wrap">
+            <nav class="gnb">
+                <h2>전체메뉴</h2>
+                <ul>
+                    <li>
+                        <a href="#none">열린경영</a>
+                        <ul>
+                            <li><a href="#none">경영공시</a></li>
+                            <li><a href="#none">윤리경영</a></li>
+                            <li><a href="#none">인권경영</a></li>
+                            <li><a href="#none">안전/품질/환경 경영</a></li>
+                            <li><a href="#none">사회공헌</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#none">고객소통</a>
+                        <ul>
+                            <li><a href="#none">고객만족경영</a></li>
+                            <li><a href="#none">전자민원창구</a></li>
+                            <li><a href="#none">부조리신고센터</a></li>
+                            <li><a href="#none">불공정하도급센터</a></li>
+                            <li><a href="#none">KR기술마켓</a></li>
+                            <li><a href="#none">예산낭비·부정청구신고센터</a></li>
+                            <li><a href="#none">참여마당</a></li>
+                            <li><a href="#none">대금지급청구</a></li>
+                            <li><a href="#none">실적증명발급</a></li>
+                            <li><a href="#none">직원칭찬</a></li>
+                            <li><a href="#none">기술자경력증명발급</a></li>
+                            <li><a href="#none">인사·채용비리 신고</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#none">정보마당</a>
+                        <ul>
+                            <li><a href="#none">KR소식</a></li>
+                            <li><a href="#none">조달공고</a></li>
+                            <li><a href="#none">정보공개 안내</a></li>
+                            <li><a href="#none">사전정보공표\otherboard\list.do</a></li>
+                            <li><a href="#none">채용정보</a></li>
+                            <li><a href="#none">철도보호지구</a></li>
+                            <li><a href="#none">국유재산</a></li>
+                            <li><a href="#none">해외사업 협업 플랫폼</a></li>
+                            <li><a href="#none">홈페이지 만족도</a></li>
+                            <li><a href="#none">토지보상</a></li>
+                            <li><a href="#none">법무정보</a></li>
+                            <li><a href="#none">공개 자료실</a></li>
+                            <li><a href="#none">국정감사</a></li>
+                            <li><a href="#none">일자리포털</a></li>
+                            <li><a href="#none">경영일반</a></li>
+                            <li><a href="#none">공공데이터개방</a></li>
+                            <li><a href="#none">사업실명제</a></li>
+                            <li><a href="#none">정보공개 FAQ</a></li>
+                            <li><a href="#none">철도역 이야기</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#none">사업소개</a>
+                        <ul>
+                            <li><a href="#none">철도건설</a></li>
+                            <li><a href="#none">철도자산관리</a></li>
+                            <li><a href="#none">철도시설관리</a></li>
+                            <li><a href="#none">철도건설공법</a></li>
+                            <li><a href="#none">사업품질관리</a></li>
+                            <li><a href="#none">해외사업</a></li>
+                            <li><a href="#none">기술/홍보동영상</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#none">공단소개</a>
+                        <ul>
+                            <li><a href="#none">KR소개</a></li>
+                            <li><a href="#none">CEO</a></li>
+                            <li><a href="#none">주요경영성과</a></li>
+                            <li><a href="#none">업무계획</a></li>
+                            <li><a href="#none">지역본부</a></li>
+                            <li><a href="#none">회의실안내 및 예약</a></li>
+                            <li><a href="#none">조직문화</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#none">KR 홍보</a>
+                        <ul>
+                            <li><a href="#none">보도ㆍ참고ㆍ해명자료</a></li>
+                            <li><a href="#none">홍보영상</a></li>
+                            <li><a href="#none">철도현장사진</a></li>
+                            <li><a href="#none">브로슈어</a></li>
+                            <li><a href="#none">매거진</a></li>
+                            <li><a href="#none">철도 동화</a></li>
+                            <li><a href="#none">KR뉴스레터</a></li>
+                            <li><a href="#none">SNS</a></li>
+                            <li><a href="#none">KR 홍보관</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <a href="#none" class="menu_open">메뉴 열기</a>
+        </div>
+
+        <div class="search">
+            <a href="#none" class="search_open">검색 열기</a>
+            <form name="" action="" method="">
+                <fieldset>
+                    <legend class="hide">검색</legend>
+                    <label for="search_text" class="hide">입력</label>
+                    <input type="text" name="search_text" id="search_text">
+                    <button type="button">검색</button>
+                </fieldset>
+            </form>
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <section class="main_image">
+            <h2 class="hide">공단소식</h2>
+            <ul>
+            <li class="main_image1">
+                <a href="#none">
+                    <img src="images/main_img1.jpg" alt="비전/미션">
+                </a>
+            </li>
+            <!-- <li class="main_image2">
+                <a href="#none">
+                    <img src="images/main_img2.jpg" alt="비전/미션">
+                </a>
+            </li>
+            <li class="main_image3">
+                <a href="#none">
+                    <img src="images/main_img3.jpg" alt="비전/미션">
+                </a>
+            </li>
+            <li class="main_image4">
+                <a href="#none">
+                    <img src="images/main_img4.jpg" alt="비전/미션">
+                </a>
+            </li> -->
+        </ul>
+        </section>
+
+        <div class="main_cont">
+            <section class="biz_info">
+                <h2 class="hide">업무안내</h2>
+                <ul>
+                    <li>
+                        <a href="#none">
+                            <img src="images/business_01.gif" alt="조직도">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#none">
+                            <img src="images/business_02.gif" alt="담당자찾기">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#none">
+                            <img src="images/business_03.gif" alt="사업추진현황">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#none">
+                            <img src="images/business_04.gif" alt="공개자료실">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#none">
+                            <img src="images/business_05.gif" alt="경영공시">
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="biz_top_mg">
+                        <a href="#none">
+                            <img src="images/business_06.gif" alt="사전공개정보">
+                        </a>
+                    </li>
+                    <li class="biz_top_mg">
+                        <a href="#none">
+                            <img src="images/business_07.gif" alt="실적증명발급">
+                        </a>
+                    </li>
+                    <li class="biz_top_mg">
+                        <a href="#none">
+                            <img src="images/business_08.gif" alt="전자조달">
+                        </a>
+                    </li>
+                    <li class="biz_top_mg">
+                        <a href="#none">
+                            <img src="images/business_09.gif" alt="CPMS">
+                        </a>
+                    </li>
+                    <li class="biz_top_mg">
+                        <a href="#none">
+                            <img src="images/business_10.gif" alt="고객민원">
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        
+
+        <div class="main_cont_bottom">
+        <section class="kr_info">
+            <h2 class="hide">알림마당</h2>
+            <section class="notice">
+                <h3>공지사항</h3>
+                <ul>
+                    <li><a href="#none">2017년도 상반기 국유재산 사용료(변상금) 납부통지 공시송달 공고</a></li>
+                    <li><a href="#none">옛 포항역 철도시설부지 복합개발사업 민간제안공모 질의답변 및 공지...</a></li>
+                    <li><a href="#none">아화 · 광천 · 용천역사 신축 설계공모 작품심사 경과 공지</a></li>
+                    <li><a href="#none">영천~신경주 및 장항선 개량 2단계 3개역사 설계</a></li>
+                </ul>
+            </section>
+
+            <section class="news">
+                <h3>보도자료</h3>
+                <ul>
+                    <li><a href="#none">[보도] 철도공단 수도권본부, 청렴 허그데이 시행</a></li>
+                    <li><a href="#none">[보도] 철도공단 호남본부, 호남고속철도 2단계 기존선 고속화구간 공...</a></li>
+                    <li><a href="#none">[보도] 철도공단 김포도시철도 우선시험구간 차량 시운전 개시!</a></li>
+                    <li><a href="#none">[보도] 철도공단 영남본부, 일손 부족한 농가에 손길 보태</a></li>
+                </ul>
+            </section>
+
+            <section class="employ">
+                <h3>채용공고</h3>
+                <ul>
+                    <li><a href="#none">한국철도시설공단 궤도장비기술원 계약직 채용 공고</a></li>
+                    <li><a href="#none">한국철도시설공단 해외사업 투입인력 계약직 채용공고</a></li>
+                    <li><a href="#none">한국철도시설공단 임원 공개 모집</a></li>
+                    <li><a href="#none">2016년 신입직원 채용 최종 합격자 발표 </a></li>
+                </ul>
+            </section>
+        </section>
+        
+
+        <section class="comm">
+            <h2 class="hide">누리소통망</h2>
+            <section class="open_biz">
+                <h3>열린경영</h3>
+                <ul>
+                    <li><a href="#none">경영공시</a></li>
+                    <li><a href="#none">정보공개</a></li>
+                    <li><a href="#none">인사및조직현황</a></li>
+                    <li><a href="#none">임원업무추진비</a></li>
+                    <li><a href="#none">지속가능보고서</a></li>
+                    <li><a href="#none">윤리경영</a></li>
+                    <li><a href="#none">대내외평가</a></li>
+                    <li><a href="#none">사회공헌 소개</a></li>
+                </ul>
+            </section>
+            <section class="customer">
+                <h3>고객창구</h3>
+                <ul>
+                    <li><a href="#none">자주묻는 민원</a></li>
+                    <li><a href="#none">CEO와의 대화</a></li>
+                    <li><a href="#none">자유게시판</a></li>
+                    <li><a href="#none">고객제안</a></li>
+                    <li><a href="#none">전자민원</a></li>
+                    <li><a href="#none">예산낭비신고</a></li>
+                    <li><a href="#none">부패신고센터</a></li>
+                    <li><a href="#none">안전,품질 신문고</a></li>
+                </ul>
+            </section>
+            <section class="adv">
+                <h3>KR홍보</h3>
+                <ul>
+                    <li><a href="#none">CEO 인사말</a></li>
+                    <li><a href="#none">CEO 동정</a></li>
+                    <li><a href="#none">주요사업현황</a></li>
+                    <li><a href="#none">글로벌 네트워크</a></li>
+                    <li><a href="#none">사회공헌</a></li>
+                    <li><a href="#none">찾아오시는 길</a></li>
+                    <li><a href="#none">회의실안내 및 예약</a></li>
+                    <li><a href="#none">홍보 동영상</a></li>
+                </ul>
+            </section>
+        </section>
+    </div>
+    </main>
+
+
+    <footer id="footer" class="footer">
+
+        <div class="footer_link">
+            <h2><a href="#none">Footer Link</a></h2>
+            <ul>
+                <li><a href="#none">개인정보처리방침</a></li>
+                <li><a href="#none">영상정보처리기기 운영·관리방침</a></li>
+                <li><a href="#none">이메일무단수집거부</a></li>
+                <li><a href="#none">저작권보호정책</a></li>
+                <li><a href="#none">웹접근성정책</a></li>
+                <li><a href="#none">뷰어다운로드</a></li>
+            </ul>
+        </div>
+
+        <p><span class="bld">고객센터</span> <span class="blue"> 1588-7270</span><span class="bld"> 상담시간 09:00 ~ 18:00 (토요일/공휴일 제외)</span></p>
+        <address>우)34618 대전광역시 동구 중아로 242 한국철도시설공단</address>
+        <p>▲ <span class="blue">TEL : 1588-7270(통화료 사용자 부담)</span> ▲ FAX : 042-60703629</p>
+        <p>COPYRIGHT© 2019 <span class="bld">BY KOREA RAIL NETWORK AUTHORITY.</span> ALL RIGHTS RESERVED</p>
+
+    </footer>
+</body>
+</html>
