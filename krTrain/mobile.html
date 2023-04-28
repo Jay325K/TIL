@@ -233,18 +233,6 @@
             height: 110px;
             background: #eee;
         }
-        .news  li{
-            display: none;
-        }
-        .notice li{
-            display: none;
-        }
-        .employ > li{
-            position: absolute;
-            left: 0;
-            top: 40px;
-            width: 100%;
-        }
         .notice{
             margin-bottom: 10px;
         }
@@ -280,8 +268,9 @@
             top: -40px;
             width: 33.3%;
         }
-        
-        
+        .notice li,.news  li{
+            display: none;
+        }
         .employ li{
             padding-left: 11px;
             background: url(images/bullet.png)no-repeat left center;
@@ -291,7 +280,12 @@
             text-overflow: ellipsis;
             line-height: 26px;
         }
-
+        .employ > li{
+            position: absolute;
+            left: 0;
+            top: 40px;
+            width: 100%;
+        }
 
         /* community content */
         .comm{
@@ -671,7 +665,7 @@
         </section>
         
 
-        <section class="comm"> <!--comm-->
+        <section class="comm">
             <h2 class="hide">누리소통망</h2>
             <section class="open_biz">
                 <h3>열린경영</h3>

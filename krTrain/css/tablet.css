@@ -10,10 +10,6 @@
             z-index: 10;
             box-shadow: 0 2px 3px 3px #7a7a82;
         }
-        /* .logo{
-            width: 192px;
-
-        } */
         .logo a{
             display: block;
             width: 192px;
@@ -87,6 +83,7 @@
             background: url(../images/btn_close.png) center no-repeat;
             left: initial;
             right: 0;
+            display: none;
         }
 
         /* search */
@@ -129,18 +126,11 @@
             top: 5px;
         }
 
-        /* main */
-        /* .main{
-            
-        } */
 
         /* main image*/
         .main_image img{
             width: 100%;
         }
-        /* .main_image1{
-
-        } */
 
         /* main content */
         .main_cont{

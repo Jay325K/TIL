@@ -8,211 +8,43 @@
 
     <style type="text/css">
         @import url('css/tablet.css');
+        @import url('css/reset.css');
         /* @import url('css/mobile.css'); */
-        /* 초기화 */
-        body, h1, h2, h3, p, div, ul, li, form, fieldset, legend, input, button{
-            margin: 0;
-            padding: 0;
-        }
-        a {
-        color: inherit;
-        text-decoration: none;
-        }
-
-        body, input, button{
-            font-family: "나눔고딕","맑은고딕", sans-serif;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        ul, li{
-            list-style: none;
-        }
-        img, fieldset{
-            border: 0 none;
-        }
-        input, button{
-            vertical-align: middle;
-        }
-        button{
-            cursor: pointer;
-        }
-        address{
-            font-style: normal;
-        }
-
-        /* 공통클래스 */
-        /* 감추기 코드 */
-        .hide{
-            width: 0px;
-            height: 0px;
-            overflow: hidden;
-            position: absolute;
-            margin: -1px;
-        }
-
+        
         /* pc */
         /* @mdeia screen and(min-width:1024px){}
         /* tablet */
         /* @mdeia screen and(min-width:768px)and (max-width:1023px){} */
         /* mobile */
         /* @mdeia screen and(max-width:767px){}  */
-        /* 저안에 해당 규격에 맞는 css 스타일 다 넣는건데 , 분명 문제 생김 */
 
-        /* tablet */
-        
-        /* @media screen and (min-width: 768px) {
-            따라 쓰다 못 쓴 부분
-            .logo a{
-            display: block;
-            width: 192px;
-            height: 58px;
-            margin: auto;
-            background: url(images/header_logo.gif) repeat;
-            text-indent: -9999px;
-        }
-        .main_cont_bottom{
-            padding: 0 2%;
-            display: flex;
-            justify-content: initial;
-            margin-bottom: 0;
-        }
-        .news h3{
-            background: none;
-            padding: 5px 0 5px 15px;
-        }
-        .employ h3{
-            background: none;
-            color: #fff;
-            box-sizing: border-box;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            position: absolute;
-            left:66.7%;
-            top: -40px;
-            width: 33.3%;
-        }
-        } */
 
         /* mobile */
         
         @media screen and (max-width: 767px){
-            
-            /* css 수정 여기부터 */
         
         h1{
             border-bottom: 2px solid rgba(0, 0, 0, 0.1);
         }
 
-        .menu_close{
-            display: none;
-        }
-
-        /* search */
-        .search_open{
-            width: 58px;
-            height: 58px;
-            background: url(../images/header_search.gif) no-repeat;
-            text-indent: -9999px;
-            position: absolute;
-            right: 0;
-            top: 0;
-        }
-        .search form{
-            position: absolute;
-            left: 0;
-            top: 58px;
-            width: 100%;
-            height: 60px;
-            background: #333;
-            padding: 10px;
-            box-sizing: border-box;
-            display: none;
-        }
-        .search input{
-            font-size: 26px;
-            width: 100%;
-            background: transparent;
-            border: 0 none;
-            border-bottom: 2px solid #eee;
-            color: #eee;
-        }
-        .search button{
-            width: 40px;
-            height: 40px;
-            border: 0 none;
-            background: url(../images/zoom_s.png) no-repeat center;
-            text-indent: -9999px;
-            position: absolute;
-            right: 10px;
-            top: 5px;
-        }
-
-        /* main image*/
-        .main_image img{
-            width: 100%;
-        }
-        /* .main_image1{
-
-        } */
 
         /* main content */
         .main_cont{
-            padding: 0 2%;
-            margin-top: -20px;
-            position: relative;
             margin-bottom: 40px;
         }
-        .biz_info{
-            border-top: 2px solid #333;
-            margin-bottom: 15px;
-        }
-        .biz_info ul{
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .biz_info ul li{
-            width: 20%;
-        }
-        .biz_info img{
-            width: 100%;
-        }
-        .biz_top_mg{
-            margin-top: -5px;
-        }
-
-
-
-        /* biz bottom content */
-        /* .main_cont_bottom{
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        } */
         .main_cont_bottom{
             padding: 0 2%;
+            display: block;
+            justify-content: flex-start;
+            margin-bottom: 0;
         }
 
         /* kr information */
         .kr_info{
+            width: auto;
             position: relative;
             height: 110px;
             background: #eee;
-        }
-        .news  li{
-            display: none;
-        }
-        .notice li{
-            display: none;
-        }
-        .employ > li{
-            position: absolute;
-            left: 0;
-            top: 40px;
-            width: 100%;
-        }
-        .notice{
-            margin-bottom: 10px;
         }
         .notice h3{
             border: 1px solid #999;
@@ -222,6 +54,9 @@
             left: 0;
             top: -40px;
             width: 33.3%;
+            background: transparent;
+            color: inherit;
+            padding: 0px;
         }
         .news h3{
             border: 1px solid #999;
@@ -231,12 +66,11 @@
             left: 33.3%;
             top: -40px;
             width: 33.3%;
+            background: transparent;
+            color: inherit;
+            padding: 0px;
         }
         .employ h3{
-            background: #0062c3;
-            color: #fff;
-            /* border: 1px solid #999;
-            padding: 5px 0 5px 15px; */
             box-sizing: border-box;
             height: 40px;
             line-height: 40px;
@@ -246,59 +80,33 @@
             top: -40px;
             width: 33.3%;
         }
-
-
-        .employ li{
-            padding-left: 11px;
-            background: url(../images/bullet.png)no-repeat left center;
+        .news  li, .notice li{
+            padding-left: 0;
+            background: none;
             /* 내용이 상자보다 길어질것 같으면 말 줄임표로 바꾸기 */
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            line-height: 26px;
-        }       
-            /* css 수정 여기까지 밑에는 확인 요망*/
+            overflow: visible;
+            white-space: normal;
+            text-overflow: visible;
+            line-height: normal;
+            display: none;
+        }
+        .employ > li{
+            position: absolute;
+            left: 0;
+            top: 40px;
+            width: 100%;
+        }
 
-            /* community content */
+        /* community content */
         .comm{
-            /* width: 376px; */
             width: auto;
-            border: 1px solid #aaa;
-            box-sizing: border-box;
         }
-        .open_biz h3{
-            padding: 15px 0 10px 15px;
-            background:  url(images/manage_01.gif) no-repeat right bottom;
-        }
-        .open_biz ul{
-            background-color: #73b41c;
-            color: #fff;
-            padding: 10px;
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .open_biz li, .customer li, .adv li{
-            padding-left: 10px;
-            background: url(images/bullet.png) no-repeat left center;
-            margin: 5px 15px 5px 0;
-        }
-        .customer h3{
-            padding: 15px 0 10px 15px;
-            background: url(images/manage_02.gif) no-repeat right bottom;
-        }
-        .customer ul{
-            background-color: rgb(67,146,174);
-            color: #fff;
-            padding: 10px;
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-/* ----- */
+
         /* footer */
         .footer{
-            position: static;
+            /* position: static; */
             /* z-index 안써도 괜찮! */
+            box-sizing: border-box;
         }
         }
     </style>
@@ -578,7 +386,7 @@
         </section>
         
 
-        <section class="comm"> <!--comm-->
+        <section class="comm"> 
             <h2 class="hide">누리소통망</h2>
             <section class="open_biz">
                 <h3>열린경영</h3>
