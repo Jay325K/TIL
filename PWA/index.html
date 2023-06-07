@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Document</title>
+    <script src="serviceWorker.js"></script>
+    
 </head>
 <body>
-    
+    인덱스<br>
+    <button type="button" id="btn">CLICK</button>
+    <script>
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click",(e)=>{
+            console.log(e.type);
+        })
+    </script>
 </body>
 </html>

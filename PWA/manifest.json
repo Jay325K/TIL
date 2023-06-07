@@ -19,5 +19,35 @@
             "sizes":"192x192",
             "type":"images/png"
         }
+    ],
+    "shortcuts":[
+        {
+            "name":"첫 번째 메뉴",
+            "short_name":"MENU 1",
+            "description":"첫번째 메뉴입니다",
+            "url":"./",
+            "icons":[
+                {
+                    "src":"images/icons/android-chorme-512x512.png",
+                    "sizes":"512x512",
+                    "type":"images/png"
+                }
+            ]
+        },
+        {
+            "name":"두 번째 메뉴",
+            "short_name":"MENU 2",
+            "description":"두 번째 메뉴입니다.",
+            "url":"./",
+            "icons":[
+                {
+                    "src":"images/icons/android-chorme-512x512.png",
+                    "sizes":"512x512",
+                    "type":"images/png"
+                }
+            ]
+        }
     ]
+    
+    
 }
