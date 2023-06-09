@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동전 던지기 결과 확인</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+    <!-- <div id="app">
+        <h1>결과 > 0.5 : {{ bFlag }}</h1>
+        <p>반환된 값: {{ num }}</p> -->
+        <!-- v-if, else로 bFlag 데이터에 접근하여 조건 판단 -->
+        <!-- <p v-if="bFlag == true">앞면!</p>
+        <p v-else>뒷면!</p>
+    </div>
+    <script>
+        let main = new Vue({
+            el: "#app",
+            data: {
+                num: Math.random(),
+                bFlag: false
+            },
+            created() {
+                this.bFlag = this.num > 0.5;
+            }
+        })
+    </script> -->
+
+
+
+    <!-- ------------------------------ -->
+    <div id="app">
+        <h1>결과 > 0.5 : {{ bFlag > 0.5}}</h1>
+        <p>반환된 값: {{ num.toFixed(5) }}</p>
+        <!-- v-if, else로 bFlag 데이터에 접근하여 조건 판단 -->
+        <p v-if="bFlag > 0.5">앞면!</p>
+        <p v-else>뒷면!</p>
+    </div>
+    <script>
+        let main = new Vue({
+            el: "#app",
+            data: {
+                num: Math.random()
+            }
+        })
+    </script>
+</body>
+
+</html>
