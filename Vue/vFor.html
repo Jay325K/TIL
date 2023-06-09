@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,30 +8,31 @@
     <title>V-for</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
+
 <body>
     <div id="app">
         <h1>좋아하는 과일은?</h1>
         <ol>
             <!-- v-for 반복문으로 fruits 과일 배열 데이터를 가져옴 -->
-            <li v-for="item in fruits">
-                <!-- fruits 안의 fruitsName 항목을 하나씩 가져와 html 로 렌더링 -->
-                {{item.fruitName}}
+            <li v-for="fruit in fruits">
+                <!-- fruits 배열의 각 항목의 fruitName 속성과 price 속성을 출력 -->
+                {{ fruit.fruitName }} : {{ fruit.price }}원
             </li>
         </ol>
-        
     </div>
     <script>
         var main = new Vue({
-            el:"#app",
-            data:{  
-                // 과일의 이름들을 가진 fruits 배열ㅇㄹ 데이터로 정의함
-                fruits:[
-                    {fruitName:'사과'},
-                    {fruitName:'복숭아'},
-                    {fruitName:'배'}
+            el: "#app",
+            data: {
+                // 과일의 이름들을 가진 fruits 배열 데이터로 정의함
+                fruits: [
+                    { fruitName: '사과', price: '1000' },
+                    { fruitName: '복숭아', price: '2000' },
+                    { fruitName: '배', price: '3000' }
                 ]
             }
         })
     </script>
 </body>
+
 </html>
