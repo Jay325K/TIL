@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- sTitle 값을 받아서 HTML의 엘리먼트 값으로 변환하여 표시함 -->
+        <p>{{sTitle}}</p> <!-- {{ 여기에 나타나게 해줘!}}-->
+    </div>
+    
+   
+    <script>
+        // Vue 객체를 생성하여 앱을 초기화 하고 시작함
+        new Vue({
+            el: '#app', //id 속성값이 "app"인 div 엘리먼트와 앱을 연결시켜 구동
+            data:{
+                // {{sTitle}}로 데이터 값을 전달함
+                sTitle:'Hello, World!'
+                // key : value
+            }
+        })
+
+
+    // Vue 객체를 생성하여 앱을 초기화 하고 시작함
+    // new Vue({
+    //     el: '#app'    
+    //     //  document.getElementById("app")과 같음
+    // })
+        // 
+    </script>
+</body>
+</html>
