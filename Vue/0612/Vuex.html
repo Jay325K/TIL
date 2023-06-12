@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuex</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!-- Vuex를 사용하기 위해 CDN 연결 -->
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>안녕하세요!</h1>
+        <!-- 카운터 신규 엘리먼트 2개 사용. msg 속성에 이름만 다르게 적용 -->
+        <com-counter msg="카운터1"></com-counter>
+        <com-counter msg="카운터2"></com-counter>
+    </div>
+    <script>
+        // Vuex의 store 중앙에 state, mutations(setters), getters, actions을 정의함
+        const store = new Vuex.Store({
+            // count 값을 상태값으로 정의
+            state:{
+                count:0
+            }
+        })
+    </script>
+</body>
+</html>
