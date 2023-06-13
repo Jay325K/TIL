@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuex</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!-- Vuex를 사용하기 위해 CDN 연결 -->
+    <script src="https://unpkg.com/vuex@3"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{sTitle}}</h2>
+        <com-counter msg="카운터1"></com-counter>
+        <com-counter msg="카운터2"></com-counter>
+        <!-- 위에 장점: 여러 번 쓰기도 편하고 한 번에 쓰기도 편하다 -->
+    </div>
+    <script>
+        // function 개념
+        const store = new Vuex.Store({
+            // 상태값 정의
+            state: {
+                count: 0
+            },
+
+            // 데이터 변경
+            mutations: {
+                fnIncData: function (state) {
+                    return state.count++
+                },
+                fnDecData: state => state.count--
+                // 이 안에 값들은 항상 key:vlaue,key:value 형태로 생김 
+
+            },
+
+            // 상태값 반환 (우리에게 값을 전달해줌)
+            getters: {
+                fnGetData: state => state.count
+                // 같은 표현식 : fnGetData:funciton(state){return  }
+                // : fnGetData(state){
+                //   return state.count       
+                // }
+            },
+
+            // 외부 데이터 통신
+            actions: {
+                // api.~~~()
+                async fnDecData({commit},state){
+                    const reslut = await api.fnDecrement()
+                     if(result == true) commit('fnDecData')
+                }
+            }
+        });
+
+        // 동작 보여주기 위함!
+        const api = {
+            fnDecrement() {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(ture)
+                    }, 1000)
+                })
+                // 첫번째 함수 , 두번째 시간
+            }
+        }
+
+        Vue.component('com-counter', {
+            props: ['msg'],
+            template: `
+            <div>
+                <h2>{{msg}}</h2>
+                <p>카운터</p>
+                <p>
+                    <button type="button" @click="fnIncCount">1 증가</button>
+                    <button type="button" @click="fnDecCount">1 감소</button>
+                </p>
+            </div>
+            `,
+            computed: {
+                // 함수의 값을 리턴하는 방식
+                fngetCount(){
+                    return store.getters.fnGetData
+                }
+            },
+            method: {
+                fnIncCount(){
+                    store.commit('fnIncData')
+                },
+                fnDecCount(){
+                    store.dispatch('fnDecData')
+                }
+                
+            }
+        })
+        new Vue({
+            el: "#app",
+            data: {
+                // sTitle의 초기값 설정
+                sTitle: 'Vuex사용하기'
+            },
+            // 뷰야 너 store 좀 사용해줘!
+            store
+        })
+    </script>
+</body>
+
+</html>
