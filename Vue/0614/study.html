@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap|Material+icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+    />
+    <title>Vuetify</title>
+  </head>
+  <body>
+    <!-- 💚설명은 Vuetify_기초쌓기 읽어보기 -->
+    <div id="app">
+      <!-- 💚첫 화면의 시작은 v-app 엘리먼트 사용  ❗❗❗❗ v-app 에서만 뷰티파이가 작동함 ❗❗❗❗-->
+      <v-app>
+        <!--💚 상단 부분은 v-app-bar 엘리먼트 사용 -->
+
+        <!--💚 앱바 색상을 primary(블루)로 설정하고 fixed로 위치 고정 -->
+        <!--🔻 dark는 다크모드를 사용하면 자동적으로 텍스트를 어울리는 색상으로 바꿔줌 fixed는 스크롤이 움직여도 고정 시켜주는 역할 -->
+        <v-app-bar app color="primary" dark fixed>
+          <!--🔻 좌측에 메뉴 아이콘 넣음 -->
+          <v-app-bar-nav-icon></v-app-bar-nav-icon>
+          <v-toolbar-title>마스터 페이지</v-toolbar-title>
+          <!--🔻 우측에 추가메뉴 아이콘을 넣기 위해 v-spacer 엘리먼트 사용 -->
+          <v-spacer></v-spacer>
+          <v-btn icon>
+            <!--v-icon🔻 <button><img></button> 와 같은 개념 -->
+            <v-icon>mdi-spider-thread</v-icon>
+          </v-btn>
+        </v-app-bar>
+
+        <!--💚 콘텐츠 부분은 v-main 엘리먼트 사용 -->
+        <v-main>
+          <!-- ❗❗v-container은 section 처럼 사용가능❗❗ -->
+          <v-container>
+            <!--🔻 디스플레이-1/3 ✅디스플레이는 h1,h2,h3개념과 같음, ✅my-상하여백✅ body-1/2 타이포그래피 서체 종류와 크기로 설정 -->
+            <h1 class="display-1 my-5">안녕하세요</h1>
+            <!--🔻 my-4로 상하 안쪽 여백 설정 -->
+            <p class="body-2 my-4">마스터 페이지 입니다.</p>
+            <v-divider></v-divider>
+            <h1 class="display-3 my-4">안녕하세요</h1>
+            <p class="body-1 my-4">마스터 페이지 입니다.</p>
+          </v-container>
+          <v-container>
+            <!-- 카드 ui 사용을 선언하는 v-card 엘리먼트 -->
+            <v-card max-width="400"> </v-card>
+                <!-- 카드 상단에 이미지 배치   aspect-ratio:비율!-->
+                <v-img src="images/sky.jpg" aspect-ratio="2"></v-img>
+
+                <!-- 카드 중간에 텍스트 배치 -->
+                <v-card-text>
+
+                </v-card-text>
+
+                <!-- 카드 하단에 버튼 배치 -->
+                <v-card-actions>
+                
+                </v-card-actions>
+          </v-container>
+        </v-main>
+        <!-- 💚하단 부분은 v-footer 엘리먼트 사용 -->
+        <!--💚 footer 색상을 secondary로 설정하고 fixed로 위치를 고정 시킴 -->
+        <!--🔻 dark는 다크모드 fixed는 스크롤이 움직여도 고정 시켜주는 역할 -->
+        <v-footer color="secondary" dark fixed>
+          <!--🔻 mx-auto는 블럭레벨 엘리먼트의 내용을 가운데 정렬시킴 -->
+          <div class="mx-auto">Copyright &copy;</div>
+        </v-footer>
+      </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        vuetify: new Vuetify(),
+      });
+    </script>
+  </body>
+</html>
