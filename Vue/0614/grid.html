@@ -39,6 +39,7 @@
                     <!-- 한 행은 12개의 열이 기준 -->
                     <v-row class="text-center">
                         <v-col cols="12" class="border_style">xs12</v-col>
+                        <v-col cols="5" offset="2" class="border_style">xs12</v-col>
                         <v-col cols="6" class="border_style">xs6</v-col>
                         <v-col cols="3" class="border_style">xs3</v-col>
 
@@ -53,6 +54,15 @@
                     <h1>총 20개 생성. 열의 개수가 12개를 넘으면 자동으로 줄바꿈</h1>
                     <v-row class="text-center">
                         <v-col cols="1" v-for="item in 20" v-bind:key="item.id" class="border_style">xs1</v-col>
+                    </v-row>
+                </v-container>
+                <v-container fluid>
+                    <v-row class="text-center">
+                        <v-col sm="4" class="border_style">sm4</v-col>
+                        <!-- offset으로 그리드 사이에 4개의 열 간격을 띄움 -->
+                        <v-col sm="4" offset-sm="3" class="border_style">4</v-col>
+                        <!-- offset만 사용하면 모든 크기에 열간격 3이 적용됨! -->
+                        <!-- <v-col sm="4" offset="3" class="border_style">4</v-col> -->
                     </v-row>
                 </v-container>
             </v-main>

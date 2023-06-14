@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap|Material+icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+    />
+    <style>
+        /* 테두리 설정 */
+        .border_style{
+            border:1px solid tomato;
+            background: #9C0;
+        }
+    </style>
+    <title>break Point</title>
+  </head>
+  <body>
+    <!-- 💚설명은 Vuetify_기초쌓기 읽어보기 -->
+    <div id="app">
+        <v-app>
+            <!-- 앱바를 이용하여 헤더 제목 작성   & app: 앱처럼 보이게! 스크롤 내려도 헤더가 고정! flat: 그림자 효과 없애기-->
+            <v-app-bar app flat color="primary">
+                <v-toolbar-title class="white--text mx-auto">
+                    화면 크기에 따른 레이아웃 변경
+                </v-toolbar-title>
+            </v-app-bar>
+            <v-main>
+                <v-container>
+                    <v-row>
+                        <!-- 첫번째 열의 반응형 크기를 지정 
+                        1. xs 의 경우 : 12개의 열을 사용하여 한 행을 모두 차지
+                        2. sm 의 경우 : 6개의 열을 사용하여 절반 너비를 차지-->
+                        <v-col cols="12" sm="6">
+                            <h2 class="mb-3">Content 1</h2>
+                            <p>첫 번째 영역</p>
+                        </v-col>
+                        <!-- 두번째 열의 반응형 크기를 지정 
+                        1. xs 의 경우 : 12개의 열을 사용하여 한 행을 모두 차지
+                        2. sm 의 경우 : 6개의 열을 사용하여 절반 너비를 차지-->
+                        <v-col cols="12" sm="6">
+                            <h2 class="mb-3">Content 2</h2>
+                            <p>두 번째 영역</p>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-main>
+        </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        vuetify: new Vuetify(),
+      });
+    </script>
+  </body>
+</html>
