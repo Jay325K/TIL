@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap|Material+icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+    />
+    <style>
+        /* 테두리 설정 */
+        .border_style{
+            border:1px solid tomato;
+            background: #9C0;
+        }
+    </style>
+    <title>Grid</title>
+  </head>
+  <body>
+    <!-- 💚설명은 Vuetify_기초쌓기 읽어보기 -->
+    <div id="app">
+        <v-app>
+            <v-main>
+                <v-container>
+                    <!-- 한 행은 12개의 열이 기준 -->
+                    <v-row class="text-center">
+                        <v-col cols="12" class="border_style">xs12</v-col>
+                        <v-col cols="6" class="border_style">xs6</v-col>
+                        <v-col cols="3" class="border_style">xs3</v-col>
+
+                        <!-- 현재 열의 개수가 9개인데 열 4개를 추가하면 12를 초과하므로 자동 줄바꿈 -->
+                        <v-col cols="4" class="border_style">xs4</v-col>
+
+                        <!-- 총 12개의 열을 추가. 8개 열을 채운 후 4개의 열은 자동으로 줄바꿈 -->
+                        <v-col cols="1" v-for="item in 12" v-bind:key="item.id" class="border_style">xs1</v-col>
+                    </v-row>
+                    <br>
+                    <!-- -------------------------------------------------------- -->
+                    <h1>총 20개 생성. 열의 개수가 12개를 넘으면 자동으로 줄바꿈</h1>
+                    <v-row class="text-center">
+                        <v-col cols="1" v-for="item in 20" v-bind:key="item.id" class="border_style">xs1</v-col>
+                    </v-row>
+                </v-container>
+            </v-main>
+        </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        vuetify: new Vuetify(),
+      });
+    </script>
+  </body>
+</html>
