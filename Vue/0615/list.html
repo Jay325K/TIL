@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>link</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap|Material+icons"
+        rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" />
+</head>
+
+<body>
+    <div id="app">
+        <!-- 💚첫 화면의 시작은 v-app 엘리먼트 사용  ❗❗❗❗ v-app 에서만 뷰티파이가 작동함 ❗❗❗❗-->
+        <v-app>
+            <v-app-bar app color="primary" dark fixed>
+                <!--🔻 좌측에 메뉴 아이콘 넣음 -->
+                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                <v-toolbar-title>마스터 페이지</v-toolbar-title>
+                <!--🔻 우측에 추가메뉴 아이콘을 넣기 위해 v-spacer 엘리먼트 사용 -->
+                <v-spacer></v-spacer> <!--정렬해줌-->
+                <v-btn icon>
+                    <!--v-icon🔻 <button><img></button> 와 같은 개념 -->
+                    <v-icon>mdi-flower-tulip-outline</v-icon>
+                </v-btn>
+            </v-app-bar>
+            <v-main>
+                <!-- ❗❗v-container은 section 처럼 사용가능❗❗ -->
+                <v-container>
+                    <v-card>
+                        <v-list-item>
+
+                        </v-list-item>
+                        <!-- 카드 하단에 버튼 배치 -->
+                        <v-card-actions>
+                            
+
+                        </v-card-actions>
+                    </v-card>
+ 
+                </v-container>
+            </v-main>
+            <v-footer color="secondary" dark fixed>
+                <!--🔻 mx-auto는 블럭레벨 엘리먼트의 내용을 가운데 정렬시킴 -->
+                <div class="mx-auto">Copyright &copy;</div>
+            </v-footer>
+            <!-- 버튼 색상은 붉은색으로 설정 -->
+            <v-btn color="pink" fab dark right fixed bottom>
+                <v-icon>mdi-plus</v-icon>
+            </v-btn>
+        </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            vuetify: new Vuetify(),
+        });
+    </script>
+</body>
+
+</html>
