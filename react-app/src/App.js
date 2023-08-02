@@ -60,6 +60,7 @@ function App() {
 
   const [mode, setMode] = useState('WELCOME');
   const [id, setId] = useState(null);
+  const  [nextId, setNextId] = useState(4);
 
 
   const [topics, setTopics] = useState([
@@ -83,7 +84,9 @@ function App() {
     content = <Article title={title} body={body}></Article>
   } else if (mode === 'CREATE') {
     content = <Create onCreate={(_title, _body) => {
-      const newTopic = { title: _title, body: _body }
+      const newTopic = {id : nextId, title: _title, body: _body }
+      topics.push(topics);
+      setTopics(topics)
     }}></Create>
   }
 
