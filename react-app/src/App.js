@@ -90,7 +90,6 @@ function App() {
     }}></Create>
   }
 
-
   return (
     <div className="App">
       <Header title="WEB" onChangeMode={() => {
