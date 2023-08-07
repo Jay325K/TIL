@@ -88,6 +88,9 @@ function App() {
       const newTopics = [...topics]
       newTopics.push(newTopic)
       setTopics(newTopics);
+      setMode('Read');
+      setId(nextId);
+      setNextId(nextId+1);
     }}></Create>
   }
 
