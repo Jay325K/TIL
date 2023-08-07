@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import { event } from 'jquery';
 
 function Header(props) {
   return <header>
@@ -52,6 +53,24 @@ function Create(props) {
   </article>
 }
 
+function Update(props) {
+  return <article>
+    <h2>Update</h2>
+    <form onSubmit={event => {
+      // 폼태그는 submit을 했을때 페이지가 reload가 된다!
+      event.preventDefault();
+      const title = event.target.title.value;
+      const body = event.target.body.value;
+      props.onUpdate(title, body);
+    }}>
+      <p> <input type="text" name="title" placeholder='title' value={props.title} /></p>
+      <p> <textarea name="body" placeholder='body' value={props.body}></textarea></p>
+      <p><input type="submit" value="Update" /></p>
+    </form>
+  </article>
+}
+
+
 
 function App() {
   // const _mode = useState('WELCOME');
@@ -70,18 +89,23 @@ function App() {
   ]);
 
   let content = null;
+  let contextControl = null;
+
   if (mode === "WELCOME") {
     content = <Article title="Welcome" body="Hello, Web"></Article>
   } else if (mode === "READ") {
     let title, body = null;
     for (let i = 0; i < topics.length; i++) {
-      console.log(topics[i].id, id);
       if (topics[i].id === id) {
         title = topics[i].title;
         body = topics[i].body;
       }
     }
     content = <Article title={title} body={body}></Article>
+    contextControl = <li><a href={'/update/' + id} onClick={event => {
+      event.preventDefault();
+      setMode('UPDATE');
+    }} >Update</a></li>
   } else if (mode === 'CREATE') {
     content = <Create onCreate={(_title, _body) => {
       const newTopic = { id: nextId, title: _title, body: _body }
@@ -90,8 +114,19 @@ function App() {
       setTopics(newTopics);
       setMode('Read');
       setId(nextId);
-      setNextId(nextId+1);
+      setNextId(nextId + 1);
     }}></Create>
+  } else if (mode === 'UPDATE') {
+    let title, body = null;
+    for (let i = 0; i < topics.length; i++) {
+      if (topics[i].id === id) {
+        title = topics[i].title;
+        body = topics[i].body;
+      }
+    }
+    content = <Update title={title} body={body} onUpdate={(title, body) => {
+
+    }}></Update>
   }
 
   return (
@@ -104,10 +139,15 @@ function App() {
         setId(_id);
       }}></Nav>
       {content}
-      <a href="/create" onClick={event => {
-        event.preventDefault();
-        setMode('CREATE');
-      }}>Create</a>
+      <ul>
+        <li>
+          <a href="/create" onClick={event => {
+            event.preventDefault();
+            setMode('CREATE');
+          }}>Create</a>
+        </li>
+        {contextControl}
+      </ul>
     </div>
   );
 }
