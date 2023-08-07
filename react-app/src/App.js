@@ -85,8 +85,9 @@ function App() {
   } else if (mode === 'CREATE') {
     content = <Create onCreate={(_title, _body) => {
       const newTopic = { id: nextId, title: _title, body: _body }
-      topics.push(topics);
-      setTopics(topics)
+      const newTopics = [...topics]
+      newTopics.push(newTopic)
+      setTopics(newTopics);
     }}></Create>
   }
 
