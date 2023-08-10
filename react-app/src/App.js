@@ -117,12 +117,13 @@ function App() {
         setMode('UPDATE');
       }} >Update</a></li>
       <li><input type="button" value="Delete" onClick={()=>{
-        const newTopic = []
+        const newTopics = []
         for(let i=0; i<topics.length; i++){
           if(topics[i].id !== id){
-            newTopic.push(topics[i]);
+            newTopics.push(topics[i]);
           }
         }
+        setTopics(newTopics); 
       }}/></li>
     </>
   } else if (mode === 'CREATE') {
