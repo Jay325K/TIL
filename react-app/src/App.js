@@ -116,15 +116,15 @@ function App() {
         event.preventDefault();
         setMode('UPDATE');
       }} >Update</a></li>
-      <li><input type="button" value="Delete" onClick={()=>{
+      <li><input type="button" value="Delete" onClick={() => {
         const newTopics = []
-        for(let i=0; i<topics.length; i++){
-          if(topics[i].id !== id){
+        for (let i = 0; i < topics.length; i++) {
+          if (topics[i].id !== id) {
             newTopics.push(topics[i]);
           }
         }
-        setTopics(newTopics); 
-      }}/></li>
+        setTopics(newTopics);
+      }} /></li>
     </>
   } else if (mode === 'CREATE') {
     content = <Create onCreate={(_title, _body) => {
