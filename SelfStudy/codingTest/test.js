@@ -6,7 +6,7 @@ const app = express();
 let isLoggedIn = false;
 
 // 로그인 API
-app.post('/login', (req, res) => {   
+app.post('/login', (req, res) => {
   // 로그인 로직을 수행합니다.
   // 예시로는 간단히 isLoggedIn 변수를 true로 설정합니다.
   isLoggedIn = true;
