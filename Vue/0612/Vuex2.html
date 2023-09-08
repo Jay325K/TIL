@@ -47,9 +47,9 @@
             // 외부 데이터 통신
             actions: {
                 // api.~~~()
-                async fnDecData({commit},state){
+                async fnDecData({ commit }, state) {
                     const reslut = await api.fnDecrement()
-                     if(result == true) commit('fnDecData')
+                    if (result == true) commit('fnDecData')
                 }
             }
         });
@@ -80,18 +80,18 @@
             `,
             computed: {
                 // 함수의 값을 리턴하는 방식
-                fngetCount(){
+                fngetCount() {
                     return store.getters.fnGetData
                 }
             },
             method: {
-                fnIncCount(){
+                fnIncCount() {
                     store.commit('fnIncData')
                 },
-                fnDecCount(){
+                fnDecCount() {
                     store.dispatch('fnDecData')
                 }
-                
+
             }
         })
         new Vue({
