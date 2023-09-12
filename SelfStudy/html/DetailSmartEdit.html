@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>고급 스마트 에디터 예시</title>
+</head>
+<body>
+    <div contenteditable="true" id="editor" style="border: 1px solid #ccc; min-height: 200px;"></div>
+    <button onclick="formatText('bold')">굵게</button>
+    <button onclick="formatText('italic')">기울임꼴</button>
+    <button onclick="formatText('underline')">밑줄</button>
+    <button onclick="formatText('strikeThrough')">취소선</button>
+    <button onclick="insertLink()">링크 삽입</button>
+    <button onclick="insertImage()">이미지 삽입</button>
+    <button onclick="clearFormatting()">서식 지우기</button>
+
+    <script>
+        function formatText(command) {
+            document.execCommand(command, false, null);
+        }
+
+        function insertLink() {
+            var url = prompt("링크 주소를 입력하세요:", "http://");
+            if (url) {
+                document.execCommand("createLink", false, url);
+            }
+        }
+
+        function insertImage() {
+            var imageUrl = prompt("이미지 URL을 입력하세요:");
+            if (imageUrl) {
+                document.execCommand("insertImage", false, imageUrl);
+            }
+        }
+
+        function clearFormatting() {
+            document.execCommand("removeFormat", false, null);
+        }
+    </script>
+</body>
+</html>

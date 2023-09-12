@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>스마트 에디터 예시</title>
+</head>
+<body>
+    <div contenteditable="true" id="editor" style="border: 1px solid #ccc; min-height: 200px;"></div>
+    <button onclick="boldText()">굵게</button>
+    <button onclick="italicText()">기울임꼴</button>
+    <button onclick="underlineText()">밑줄</button>
+    <button onclick="insertLink()">링크 삽입</button>
+
+    <script>
+        function boldText() {
+            document.execCommand("bold", false, null);
+        }
+
+        function italicText() {
+            document.execCommand("italic", false, null);
+        }
+
+        function underlineText() {
+            document.execCommand("underline", false, null);
+        }
+
+        function insertLink() {
+            var url = prompt("링크 주소를 입력하세요:", "http://");
+            if (url) {
+                document.execCommand("createLink", false, url);
+            }
+        }
+    </script>
+</body>
+</html>
