@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,22 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
+
 <body>
     <!-- sContent라는 항목을 추가하고 임의의 텍스트를 출력 -->
-    <div id="app"> 
+    <div id="app">
         <p>{{sTitle}}</p>
         <p>{{sContent}}</p>
     </div>
     <script>
         new Vue({
-            el:"#app",
-            data:{  
-                sTitle:"임의의 텍스트이다~~~",
-                sContent:"임의의 텍스트이다~~~"
+            el: "#app",
+            data: {
+                sTitle: "임의의 텍스트이다~~~",
+                sContent: "임의의 텍스트이다~~~"
             }
         })
     </script>
 </body>
+
 </html>
