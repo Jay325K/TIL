@@ -1,9 +1,12 @@
- void main() {
-  String name = "jay";;
-  bool alive = true;
-  int age = 2;
-  double height = 1.80;
-  num x = 12;
-  x = 1.1;
-  // int 와 double의 부모 num!
- }
+void main() {
+  var giveMeFive = true;
+  var number = [
+    1,
+    2,
+    3,
+    4,
+    if(giveMeFive) 5
+  ];
+  // List<int> number = [1, 2, 3, 4, 5, 6, 7];
+  print(number);
+}
