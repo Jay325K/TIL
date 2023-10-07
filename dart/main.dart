@@ -1,7 +1,5 @@
  void main() {
-  String? jay = "jay";;
-  jay = null;
-  if(jay!= null) {
-    jay.isNotEmpty;
- }
+  final name ='jay';
+  name = 'koyan';
+  // ts js 의 const와 같다
  }
