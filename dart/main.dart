@@ -1,12 +1,6 @@
 void main() {
-  var giveMeFive = true;
-  var number = [
-    1,
-    2,
-    3,
-    4,
-    if(giveMeFive) 5
-  ];
-  // List<int> number = [1, 2, 3, 4, 5, 6, 7];
-  print(number);
+  var name = "jay";
+  var age = 10;
+  var greeting = 'Hello everyone, my name is $name. and I\'am ${age+2} years old.';
+  print(greeting);
 }
