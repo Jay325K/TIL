@@ -1,9 +1,12 @@
-// ??=
+typedef ListOfInts = List<int>;
+
+
+ListOfInts reverseListOfNumbers(ListOfInts list) {
+  var reversed = list.reversed;
+  return reversed.toList();
+}
+
 
 void main () {
-  String? name;
-  name ??= 'nicolas';
-  name = null;
-  name ??= 'jauc';
-  print(name);
+  reverseListOfNumbers([1, 2, 3, 4,]);
 }
