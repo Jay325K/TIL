@@ -1,12 +1,9 @@
-// ??
-// ?=
+// ??=
 
-String capitalizeName(String? name) =>
-    name?.toUpperCase() ?? 'Anono';
-
-
-
-void main() {
-  capitalizeName('james');
-  capitalizeName(null);
+void main () {
+  String? name;
+  name ??= 'nicolas';
+  name = null;
+  name ??= 'jauc';
+  print(name);
 }
