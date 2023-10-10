@@ -1,13 +1,20 @@
 class Player {
-  late final String name;
-  late int xp;
-  String team;
-  int age;
+  late final String name, team;
+  late int xp, age;
 
-  Player({required this.name, 
-  required this.xp, 
-  required this.team, 
-  required this.age});
+  Player(
+      {required this.name,
+      required this.xp,
+      required this.team,
+      required this.age});
+ 
+  Player.createBluePlayer({
+    required String name,
+    required int age,
+  })  : this.age = age,
+        this.name = name,
+        this.team = 'blue',
+        this.xp = 0;
 
   void sayHello() {
     print("Hi my name is $name");
@@ -15,18 +22,12 @@ class Player {
 }
 
 void main() {
-  var player = Player(
+  var player = Player.createBluePlayer(
     name: "nico",
-    xp: 100,
-    team: "team1",
     age: 20,
   );
-  player.sayHello();
-  var player2 = Player(
-    name: "nico2",
-    xp: 1002,
-    team: "team2",
-    age: 2202,
+  var redPlayer = Player.createBluePlayer(
+    name: "nico",
+    age: 20,
   );
-  player2.sayHello();
 }
