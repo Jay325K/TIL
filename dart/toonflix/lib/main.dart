@@ -27,6 +27,14 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
+  bool showTitle = true;
+
+  void toggleTitle() {
+    setState(() {
+      showTitle = !showTitle;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,13 +45,16 @@ class _MainAppState extends State<MainApp> {
           ),
         ),
       ),
-      home: const Scaffold(
-        backgroundColor: Colors.blueAccent,
+      home: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 255, 211, 211),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              MyLargeTitle(),
+              showTitle ? const MyLargeTitle() : const Text('nothing'),
+              IconButton(
+                  onPressed: toggleTitle,
+                  icon: const Icon(Icons.remove_red_eye)),
             ],
           ),
         ),
@@ -52,13 +63,34 @@ class _MainAppState extends State<MainApp> {
   }
 }
 
-class MyLargeTitle extends StatelessWidget {
+class MyLargeTitle extends StatefulWidget {
   const MyLargeTitle({
     super.key,
   });
 
   @override
+  State<MyLargeTitle> createState() => _MyLargeTitleState();
+}
+
+class _MyLargeTitleState extends State<MyLargeTitle> {
+  @override
+  void initState() {
+    super.initState();
+    print('initState');
+  }
+
+  @override
+  void dispose() {
+    // Api 업데이트나 이벤트 리스너로부터 구독을 취소하거나, form의 리스너로부터 벗어나고 싶을 사용할 수 있다!
+    // dispose 메소드는 무언가를 취소하는곳이다!
+    super.dispose();
+    print('dispose');
+  }
+
+  @override
   Widget build(BuildContext context) {
+    print('build');
+
     return Text(
       'My Large Title',
       style: TextStyle(
