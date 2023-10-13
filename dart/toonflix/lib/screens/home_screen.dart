@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   static const twentyFiveMinutes = 1500;
-  int totalSeconds = 1500;
+  int totalSeconds = 10;
   bool isRunning = false;
   int totalPomodoros = 0;
   late Timer timer;
@@ -51,6 +51,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return duraction.toString().split(".").first.substring(2, 7);
   }
 
+  void onRestartPressed() {
+    setState(() {
+      totalSeconds = twentyFiveMinutes;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,13 +80,32 @@ class _HomeScreenState extends State<HomeScreen> {
           Flexible(
             flex: 2,
             child: Center(
-              child: IconButton(
-                onPressed: isRunning ? onPausePressed : onStartPressed,
-                icon: Icon(isRunning
-                    ? Icons.pause_circle_outline
-                    : Icons.play_circle_outline),
-                iconSize: 120,
-                color: Theme.of(context).cardColor,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: isRunning ? onPausePressed : onStartPressed,
+                    icon: Icon(isRunning
+                        ? Icons.pause_circle_outline
+                        : Icons.play_circle_outline),
+                    iconSize: 120,
+                    color: Theme.of(context).cardColor,
+                  ),
+                  // Text(
+                  //   'restart',
+                  //   style: TextStyle(
+                  //       color: Theme.of(context).cardColor,
+                  //       fontSize: 18,
+                  //       fontWeight: FontWeight.w400,
+                  //       decoration: TextDecoration.underline),
+                  // ),
+                  IconButton(
+                    onPressed: onRestartPressed,
+                    icon: const Icon(Icons.refresh),
+                    iconSize: 60,
+                    color: Theme.of(context).cardColor,
+                  ),
+                ],
               ),
             ),
           ),
