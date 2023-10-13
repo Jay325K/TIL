@@ -3,12 +3,11 @@ import 'package:toonflix/models/webtoon_model.dart';
 import 'package:toonflix/services/api_service.dart';
 
 class ToonScreen extends StatelessWidget {
-  Future<List<WebtoonModel>> webtoons = ApiService.getTodayToons();
+  final Future<List<WebtoonModel>> webtoons = ApiService.getTodayToons();
   ToonScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    print(webtoons);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -26,9 +25,18 @@ class ToonScreen extends StatelessWidget {
         future: webtoons,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return const Text("There is data!");
+            return ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: snapshot.data!.length,
+              itemBuilder: (context, index) {
+                var webtoon = snapshot.data![index];
+                return Text(webtoon.title);
+              },
+            );
           }
-          return const Text('Loading...');
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         },
       ),
     );
