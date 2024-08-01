@@ -4,22 +4,31 @@ function Header(props) {
   console.log(props.title);
   return (
     <header>
-      <h1><a href="">{props.title}</a></h1>
+      <h1><a href="" onClick={(event) => {
+        event.preventDefault();//기본 동작 방지
+        props.onChangeMode();// 부모 컴포넌트로부터 전달된 함수 호출
+      }}>{props.title}</a></h1>
     </header>
   );
 }
 function Nav(props) {
   const lis = [
-    
+
   ];
-  for(let i = 0; i < props.topics.length; i++) {
+  for (let i = 0; i < props.topics.length; i++) {
     let t = props.topics[i];
-    lis.push(<li key={t.id}><a href={'/read/'+t.id}>{t.title}</a> </li>)
+    lis.push(<li key={t.id}>
+      <a id={t.id} href={'/read/' + t.id} onClick={(event)=>{
+        event.preventDefault();// 기본 동작 방지
+        props.onChangeMode(event.target.id);// 클릭된 요소의 ID를 부모 컴포넌트로 전달
+      }}>{t.title}</a>
+      
+    </li>)
   }
   return (
     <nav>
       <ol>
-      {lis}
+        {lis}
       </ol>
     </nav>
   );
@@ -41,9 +50,13 @@ function App() {
   ];
   return (
     <div>
-      <Header title="Web"></Header>
+      <Header title="Web" onChangeMode={() => {
+        alert('Header is clicked');
+      }}></Header>
 
-      <Nav topics={topics}></Nav>
+      <Nav topics={topics} onChangeMode={(id) => {
+        alert(id);
+      }}></Nav>
 
 
       <Article title="Welcome" body="Hello, Web!!!"></Article>
